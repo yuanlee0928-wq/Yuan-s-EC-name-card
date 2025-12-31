@@ -516,7 +516,7 @@
         }
 
         .links-row-2x3 {
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 24px;
             row-gap: 24px;
         }
@@ -781,7 +781,7 @@
             }
 
             .links-row-2x3 {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(4, 1fr);
             }
         }
 
@@ -841,7 +841,7 @@
                 <div class="avatar-wrapper">
                     <img src="avatar.png.jpg" alt="李文元头像" class="avatar" id="avatar">
                     <div class="contact-btn-wrapper">
-                        <button class="contact-btn" onclick="openContactModal()">联系我</button>
+                        <button class="contact-btn" onclick="openContactModal()" data-i18n="contact-me">联系我</button>
                     </div>
                 </div>
                 
@@ -996,6 +996,18 @@
                 descKey: 'hot-promo-desc',
                 url: 'https://bytedance.sg.larkoffice.com/docx/Kbfkd8JDfoSvFExgvBpl4Kuegwd#share-Of2Dd4IhhoqgiYx6YvIlBxYrgSc',
                 icon: '🔥'
+            },
+            {
+                titleKey: 'market-overview',
+                descKey: 'market-overview-desc',
+                url: 'https://bytedance.sg.larkoffice.com/docx/Kbfkd8JDfoSvFExgvBpl4Kuegwd#share-SL0yd0qv2oGQpCxG7fOlokJSggR',
+                icon: '📈'
+            },
+            {
+                titleKey: 'marketing-nodes',
+                descKey: 'marketing-nodes-desc',
+                url: 'https://bytedance.sg.larkoffice.com/docx/Kbfkd8JDfoSvFExgvBpl4Kuegwd#share-PxEUdh0eAohjNKx8Rful8L5ZgBb',
+                icon: '📅'
             }
         ];
 
@@ -1108,7 +1120,7 @@
                 'cross-border': '申请跨境店铺',
                 'cross-border-desc': '跨境店铺处理时效约7个工作日，会通过邮件通知您正式注册链接',
                 'operation-manual': '官方运营手册',
-                'operation-desc': '查看完整的运营指南和操作手册',
+                'operation-desc': '查看完整的运营指南和操作手册。进入手册后Ctrl/Command+F 搜索关键词即可直达词条',
                 'info-group': '官方信息发布群',
                 'info-group-desc': '扫描二维码加入官方信息发布群',
                 'weekly-insight': '行业Weekly洞察小报',
@@ -1118,7 +1130,11 @@
                 'qa-collection': 'Q&A集合',
                 'qa-desc': '常见问题解答和帮助文档',
                 'hot-promo': '近期火热大促',
-                'hot-promo-desc': '查看最新的大促活动和优惠信息'
+                'hot-promo-desc': '查看最新的大促活动和优惠信息',
+                'market-overview': '墨西哥市场概况',
+                'market-overview-desc': '了解墨西哥市场整体情况和趋势',
+                'marketing-nodes': '墨西哥营销节点',
+                'marketing-nodes-desc': '掌握墨西哥重要营销节点和活动时间'
             },
             en: {
                 'contact-me': 'Contact Me',
@@ -1142,7 +1158,7 @@
                 'cross-border': 'Apply for Cross-border Shop',
                 'cross-border-desc': 'Processing time approximately 7 business days, official registration link will be notified via email',
                 'operation-manual': 'Official Operations Manual',
-                'operation-desc': 'View complete operations guide and manual',
+                'operation-desc': 'View complete operations guide and manual. Press Ctrl/Command+F in the manual to search keywords and jump to entries',
                 'info-group': 'Official Information Group',
                 'info-group-desc': 'Scan QR code to join official information group',
                 'weekly-insight': 'Industry Weekly Insights',
@@ -1152,7 +1168,11 @@
                 'qa-collection': 'Q&A Collection',
                 'qa-desc': 'Frequently asked questions and help documents',
                 'hot-promo': 'Recent Hot Promotions',
-                'hot-promo-desc': 'View latest promotion activities and offers'
+                'hot-promo-desc': 'View latest promotion activities and offers',
+                'market-overview': 'Mexico Market Overview',
+                'market-overview-desc': 'Understand Mexico market situation and trends',
+                'marketing-nodes': 'Mexico Marketing Nodes',
+                'marketing-nodes-desc': 'Master important marketing nodes and event timing in Mexico'
             },
             es: {
                 'contact-me': 'Contáctame',
@@ -1176,7 +1196,7 @@
                 'cross-border': 'Solicitar Tienda Transfronteriza',
                 'cross-border-desc': 'Tiempo de procesamiento aproximadamente 7 días hábiles, el enlace de registro oficial será notificado por correo electrónico',
                 'operation-manual': 'Manual de Operaciones Oficial',
-                'operation-desc': 'Ver guía y manual completo de operaciones',
+                'operation-desc': 'Ver guía y manual completo de operaciones. Presiona Ctrl/Command+F en el manual para buscar palabras clave y saltar a entradas',
                 'info-group': 'Grupo de Información Oficial',
                 'info-group-desc': 'Escanee el código QR para unirse al grupo de información oficial',
                 'weekly-insight': 'Informe Semanal de Perspectivas de la Industria',
@@ -1186,7 +1206,11 @@
                 'qa-collection': 'Colección Q&A',
                 'qa-desc': 'Preguntas frecuentes y documentos de ayuda',
                 'hot-promo': 'Promociones Calientes Recientes',
-                'hot-promo-desc': 'Ver últimas actividades promocionales y ofertas'
+                'hot-promo-desc': 'Ver últimas actividades promocionales y ofertas',
+                'market-overview': 'Resumen del Mercado de México',
+                'market-overview-desc': 'Comprender la situación y tendencias del mercado de México',
+                'marketing-nodes': 'Nodos de Marketing de México',
+                'marketing-nodes-desc': 'Dominar nodos de marketing importantes y tiempo de eventos en México'
             }
         };
 
