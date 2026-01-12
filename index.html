@@ -151,16 +151,66 @@
             gap: 16px;
         }
 
+        .quick-entry-buttons {
+            display: flex;
+            flex-direction: row;
+            gap: 8px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .quick-entry-btn {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            background: rgba(255, 0, 80, 0.1);
+            color: #ffffff;
+            padding: 12px 8px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 500;
+            text-decoration: none;
+            border: 1px solid rgba(255, 0, 80, 0.3);
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+        .quick-entry-btn:hover {
+            background: rgba(255, 0, 80, 0.2);
+            border-color: #FF0050;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 0, 80, 0.3);
+        }
+
+        .quick-entry-btn:active {
+            transform: translateY(0);
+        }
+
+        .quick-entry-btn-icon {
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .help-button-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
         .help-button {
             display: inline-block;
             background: linear-gradient(135deg, rgba(255, 0, 80, 0.15) 0%, rgba(255, 0, 80, 0.1) 100%);
             color: #FF0050;
-            padding: 14px 24px;
-            border-radius: 12px;
-            font-size: 15px;
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-size: 13px;
             font-weight: 600;
             text-decoration: none;
-            border: 2px solid rgba(255, 0, 80, 0.3);
+            border: 1px solid rgba(255, 0, 80, 0.3);
             transition: all 0.3s ease;
             text-align: center;
             position: relative;
@@ -194,7 +244,7 @@
         }
 
         .help-label {
-            font-size: 12px;
+            font-size: 11px;
             color: #a8a8a8;
             text-align: center;
             margin-top: 4px;
@@ -747,6 +797,15 @@
                 margin-top: 24px;
             }
 
+            .quick-entry-buttons {
+                margin-bottom: 16px;
+                flex-direction: column;
+            }
+
+            .quick-entry-btn {
+                width: 100%;
+            }
+
             .links-row-3,
             .links-row-4,
             .links-row-5,
@@ -868,12 +927,18 @@
                         </p>
                     </div>
                     
-                    <!-- 帮助按钮区域 -->
+                    <!-- 右侧功能区 -->
                     <div class="profile-help-section">
-                        <a href="https://bytedance.sg.larkoffice.com/docx/SqK1dks81om8Etx0B6ClkxQTgSh#share-Hp26dwdUmojiBQxyrW2l8C8xgRe" target="_blank" class="help-button" data-i18n="help-button">
-                            💡 如何解决问题？
-                        </a>
-                        <div class="help-label" data-i18n="help-label">点击查看解决问题常规流程👆</div>
+                        <!-- 快速入口按钮 -->
+                        <div class="quick-entry-buttons" id="quick-entry-buttons"></div>
+                        
+                        <!-- 帮助按钮区域 -->
+                        <div class="help-button-wrapper">
+                            <a href="https://bytedance.sg.larkoffice.com/docx/SqK1dks81om8Etx0B6ClkxQTgSh#share-Hp26dwdUmojiBQxyrW2l8C8xgRe" target="_blank" class="help-button" data-i18n="help-button">
+                                💡 如何解决问题？
+                            </a>
+                            <div class="help-label" data-i18n="help-label">点击查看解决问题常规流程👆</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -885,11 +950,7 @@
         </div>
         
         <section class="gallery-section">
-            <!-- 第一行：开店直达 -->
-            <h3 class="section-subtitle" data-i18n="shop-direct">开店直达</h3>
-            <div class="links-row links-row-3" id="shop-links"></div>
-
-            <!-- 第二行：官方指南 -->
+            <!-- 官方指南 -->
             <h3 class="section-subtitle" data-i18n="official-guide">官方指南</h3>
             <div class="links-row links-row-2x3" id="official-links"></div>
         </section>
@@ -1011,23 +1072,16 @@
             }
         ];
 
-        // 渲染开店直达链接
-        function renderShopLinks() {
-            const container = document.getElementById('shop-links');
+        // 渲染快速入口按钮（个人信息区域右侧）
+        function renderQuickEntryButtons() {
+            const container = document.getElementById('quick-entry-buttons');
             const t = translations[currentLang] || translations['zh'];
             container.innerHTML = shopLinksData.map(item => {
                 const title = t[item.titleKey] || translations['zh'][item.titleKey] || '';
-                const desc = t[item.descKey] || translations['zh'][item.descKey] || '';
                 return `
-                    <a href="${item.url}" target="_blank" class="link-card-large">
-                        <div class="link-card-image">
-                            <div class="link-card-icon">${item.icon}</div>
-                        </div>
-                        <div class="link-card-content">
-                            <div class="link-card-title">${title}</div>
-                            <div class="link-card-desc">${desc}</div>
-                            <div class="link-card-arrow">→</div>
-                        </div>
+                    <a href="${item.url}" target="_blank" class="quick-entry-btn">
+                        <span class="quick-entry-btn-icon">${item.icon}</span>
+                        <span>${title}</span>
                     </a>
                 `;
             }).join('');
@@ -1270,13 +1324,13 @@
             if (helpLabel) helpLabel.textContent = t['help-label'] || tZh['help-label'] || '';
             
             // 重新渲染链接（使用新的渲染函数，它们会根据currentLang自动获取翻译）
-            renderShopLinks();
+            renderQuickEntryButtons();
             renderOfficialLinks();
         }
 
         // 页面加载时渲染
         window.addEventListener('DOMContentLoaded', function() {
-            renderShopLinks();
+            renderQuickEntryButtons();
             renderOfficialLinks();
         });
     </script>
