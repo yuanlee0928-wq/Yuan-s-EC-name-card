@@ -140,7 +140,8 @@
         .profile-info-wrapper {
             display: flex;
             gap: 32px;
-            align-items: center;
+            align-items: flex-start;
+            padding-top: 8px;
         }
 
         .profile-help-section {
@@ -148,14 +149,25 @@
             width: 220px;
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 10px;
+            padding-left: 32px;
+            border-left: 1px solid rgba(255, 0, 80, 0.2);
+        }
+
+        .quick-entry-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 8px;
+            padding: 0 4px;
         }
 
         .quick-entry-buttons {
             display: flex;
             flex-direction: row;
             gap: 8px;
-            margin-bottom: 16px;
+            margin-bottom: 10px;
             flex-wrap: wrap;
         }
 
@@ -193,6 +205,23 @@
         .quick-entry-btn-icon {
             font-size: 20px;
             flex-shrink: 0;
+        }
+
+        .quick-entry-note {
+            font-size: 11px;
+            color: #a8a8a8;
+            line-height: 1.5;
+            text-align: center;
+            margin-bottom: 10px;
+            padding: 0 4px;
+            margin-top: 0;
+        }
+
+        .quick-entry-divider {
+            height: 1px;
+            background: rgba(255, 0, 80, 0.2);
+            margin-bottom: 10px;
+            width: 100%;
         }
 
         .help-button-wrapper {
@@ -492,7 +521,7 @@
         }
 
         .section-divider {
-            margin: 32px 0;
+            margin: 16px 0;
             position: relative;
             text-align: center;
         }
@@ -792,9 +821,17 @@
                 align-items: center;
             }
 
+            .profile-info-wrapper::before {
+                display: none;
+            }
+
             .profile-help-section {
                 width: 100%;
                 margin-top: 24px;
+                padding-left: 0;
+                border-left: none;
+                border-top: 1px solid rgba(255, 0, 80, 0.2);
+                padding-top: 24px;
             }
 
             .quick-entry-buttons {
@@ -929,8 +966,12 @@
                     
                     <!-- 右侧功能区 -->
                     <div class="profile-help-section">
+                        <!-- 快速入口标题 -->
+                        <div class="quick-entry-title" data-i18n="shop-action-direct">开店行动直达！</div>
                         <!-- 快速入口按钮 -->
                         <div class="quick-entry-buttons" id="quick-entry-buttons"></div>
+                        <div class="quick-entry-note" data-i18n="quick-entry-note"></div>
+                        <div class="quick-entry-divider"></div>
                         
                         <!-- 帮助按钮区域 -->
                         <div class="help-button-wrapper">
@@ -950,8 +991,6 @@
         </div>
         
         <section class="gallery-section">
-            <!-- 官方指南 -->
-            <h3 class="section-subtitle" data-i18n="official-guide">官方指南</h3>
             <div class="links-row links-row-2x3" id="official-links"></div>
         </section>
 
@@ -1164,6 +1203,8 @@
                 'bio': '专注于TikTok Shop墨西哥市场耐消品行业的招商运营工作，致力于帮助优质品牌和商家拓展拉美市场。拥有丰富的跨境电商运营经验和深厚的行业洞察，擅长品牌孵化、市场策略制定和运营优化。致力于构建高效、可持续的电商生态，为商家创造更大价值。',
                 'help-button': '💡 如何解决问题？',
                 'help-label': '点击查看解决问题常规流程👆',
+                'shop-action-direct': '开店行动直达！',
+                'quick-entry-note': '👆在开店申请中填写所有字段后，本土店处理时效2-3工作日、跨境店3-7工作日，通过邮件发送正式注册链接，注意查收。',
                 'quick-entry': '快速入口',
                 'shop-direct': '开店直达',
                 'official-guide': '官方指南',
@@ -1202,6 +1243,8 @@
                 'bio': 'Focusing on recruitment and operations for TikTok Shop Mexico market durable goods industry, committed to helping quality brands and merchants expand into the Latin American market. With rich cross-border e-commerce operations experience and deep industry insights, specializing in brand incubation, market strategy development, and operations optimization. Committed to building an efficient and sustainable e-commerce ecosystem to create greater value for merchants.',
                 'help-button': '💡 How to Solve Problems?',
                 'help-label': 'Click to view problem-solving process👆',
+                'shop-action-direct': 'Shop Action Direct!',
+                'quick-entry-note': '👆 After filling all fields in the shop application, local shop processing time is 2-3 business days, cross-border shop is 3-7 business days, official registration link will be sent via email, please check.',
                 'quick-entry': 'Quick Entry',
                 'shop-direct': 'Shop Direct',
                 'official-guide': 'Official Guide',
@@ -1240,6 +1283,8 @@
                 'bio': 'Enfocado en el reclutamiento y operaciones de la industria de bienes duraderos del mercado mexicano de TikTok Shop, comprometido a ayudar a marcas y comerciantes de calidad a expandirse en el mercado latinoamericano. Con rica experiencia en operaciones de comercio electrónico transfronterizo y profundos conocimientos de la industria, especializado en incubación de marcas, desarrollo de estrategias de mercado y optimización de operaciones. Comprometido a construir un ecosistema de comercio electrónico eficiente y sostenible para crear mayor valor para los comerciantes.',
                 'help-button': '💡 ¿Cómo Resolver Problemas?',
                 'help-label': 'Haz clic para ver el proceso de resolución de problemas👆',
+                'shop-action-direct': '¡Acción Directa de Tienda!',
+                'quick-entry-note': '👆 Después de completar todos los campos en la solicitud de tienda, el tiempo de procesamiento de la tienda local es de 2-3 días hábiles, la tienda transfronteriza es de 3-7 días hábiles, el enlace de registro oficial se enviará por correo electrónico, por favor revise.',
                 'quick-entry': 'Entrada Rápida',
                 'shop-direct': 'Tienda Directa',
                 'official-guide': 'Guía Oficial',
@@ -1323,6 +1368,9 @@
             const helpLabel = document.querySelector('.help-label');
             if (helpLabel) helpLabel.textContent = t['help-label'] || tZh['help-label'] || '';
             
+            const quickEntryNote = document.querySelector('.quick-entry-note');
+            if (quickEntryNote) quickEntryNote.textContent = t['quick-entry-note'] || tZh['quick-entry-note'] || '';
+            
             // 重新渲染链接（使用新的渲染函数，它们会根据currentLang自动获取翻译）
             renderQuickEntryButtons();
             renderOfficialLinks();
@@ -1330,6 +1378,14 @@
 
         // 页面加载时渲染
         window.addEventListener('DOMContentLoaded', function() {
+            // 初始化所有带data-i18n属性的元素
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations['zh'] && translations['zh'][key]) {
+                    element.textContent = translations['zh'][key];
+                }
+            });
+            
             renderQuickEntryButtons();
             renderOfficialLinks();
         });
