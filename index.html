@@ -139,18 +139,18 @@
 
         .profile-info-wrapper {
             display: flex;
-            gap: 32px;
+            gap: 48px;
             align-items: flex-start;
             padding-top: 8px;
         }
 
         .profile-help-section {
             flex-shrink: 0;
-            width: 220px;
+            width: 280px;
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            padding-left: 32px;
+            gap: 12px;
+            padding-left: 40px;
             border-left: 1px solid rgba(255, 0, 80, 0.2);
         }
 
@@ -226,8 +226,18 @@
 
         .help-button-wrapper {
             display: flex;
+            flex-direction: row;
+            gap: 10px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .help-button-container {
+            display: flex;
             flex-direction: column;
             gap: 4px;
+            flex: 1;
+            min-width: 0;
         }
 
         .help-button {
@@ -401,6 +411,49 @@
             position: relative;
         }
 
+        .timeline-modal-content {
+            max-width: 800px;
+            width: 90%;
+            max-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            padding: 24px;
+        }
+
+        .timeline-modal-content .modal-header {
+            flex-shrink: 0;
+            margin-bottom: 20px;
+        }
+
+        #timelineModalBody {
+            flex: 1;
+            overflow-y: auto;
+            padding-right: 8px;
+            min-height: 0;
+        }
+
+        .timeline-modal-content::-webkit-scrollbar,
+        #timelineModalBody::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .timeline-modal-content::-webkit-scrollbar-track,
+        #timelineModalBody::-webkit-scrollbar-track {
+            background: rgba(255, 0, 80, 0.1);
+            border-radius: 4px;
+        }
+
+        .timeline-modal-content::-webkit-scrollbar-thumb,
+        #timelineModalBody::-webkit-scrollbar-thumb {
+            background: rgba(255, 0, 80, 0.3);
+            border-radius: 4px;
+        }
+
+        .timeline-modal-content::-webkit-scrollbar-thumb:hover,
+        #timelineModalBody::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 0, 80, 0.5);
+        }
+
         @keyframes slideUp {
             from {
                 transform: translateY(20px);
@@ -518,6 +571,200 @@
             padding: 32px;
             box-shadow: 0 4px 24px rgba(255, 0, 80, 0.15);
             border: 1px solid rgba(255, 0, 80, 0.2);
+        }
+
+        /* 栏目式卡片样式 */
+        .timeline-section {
+            background: #161823;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 32px;
+            box-shadow: 0 4px 24px rgba(255, 0, 80, 0.15);
+            border: 1px solid rgba(255, 0, 80, 0.2);
+        }
+
+        .timeline-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            background: rgba(255, 0, 80, 0.05);
+            border: 1px solid rgba(255, 0, 80, 0.2);
+            border-radius: 12px;
+            padding: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: rgba(255, 0, 80, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            background: rgba(255, 0, 80, 0.1);
+            border-color: rgba(255, 0, 80, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(255, 0, 80, 0.2);
+        }
+
+        .timeline-item:hover::before {
+            background: #FF0050;
+            width: 6px;
+        }
+
+        .timeline-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .timeline-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: #FF0050;
+            line-height: 1;
+            min-width: 40px;
+        }
+
+        .timeline-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #ffffff;
+            flex: 1;
+        }
+
+        .timeline-content {
+            display: none;
+        }
+
+        .timeline-content-text {
+            font-size: 14px;
+            color: #a8a8a8;
+            line-height: 1.8;
+        }
+
+        .timeline-content-text h4 {
+            font-size: 17px;
+            font-weight: 600;
+            color: #ffffff;
+            margin: 20px 0 12px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255, 0, 80, 0.2);
+        }
+
+        .timeline-content-text h4:first-child {
+            margin-top: 0;
+        }
+
+        .timeline-content-text p {
+            margin: 12px 0;
+            line-height: 1.8;
+            color: #d0d0d0;
+        }
+
+        .timeline-content-text strong {
+            color: #FF0050;
+            font-weight: 600;
+        }
+
+        .timeline-content-text .step-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #FF0050;
+            margin: 16px 0 8px 0;
+            display: block;
+        }
+
+        .timeline-content-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 13px;
+            background: rgba(255, 0, 80, 0.05);
+            border: 1px solid rgba(255, 0, 80, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(255, 0, 80, 0.1);
+        }
+
+        .timeline-content-table th {
+            background: rgba(255, 0, 80, 0.2);
+            color: #ffffff;
+            font-weight: 600;
+            padding: 16px 14px;
+            text-align: left;
+            border-bottom: 2px solid rgba(255, 0, 80, 0.3);
+            font-size: 14px;
+        }
+
+        .timeline-content-table td {
+            padding: 16px 14px;
+            border-bottom: 1px solid rgba(255, 0, 80, 0.15);
+            color: #d0d0d0;
+            vertical-align: top;
+            line-height: 1.8;
+        }
+
+        .timeline-content-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .timeline-content-table tr:hover {
+            background: rgba(255, 0, 80, 0.08);
+            transition: background 0.2s ease;
+        }
+
+        .timeline-content-table td:first-child {
+            color: #ffffff;
+            font-weight: 600;
+            min-width: 150px;
+            background: rgba(255, 0, 80, 0.12);
+        }
+
+        .timeline-content-table td ul {
+            margin: 8px 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .timeline-content-table td ul li {
+            margin: 10px 0;
+            line-height: 1.8;
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .timeline-content-table td ul li::before {
+            content: '▸';
+            color: #FF0050;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 14px;
+        }
+
+        .timeline-section-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 32px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(255, 0, 80, 0.2);
         }
 
         .section-divider {
@@ -843,6 +1090,26 @@
                 width: 100%;
             }
 
+            .timeline-section {
+                padding: 24px;
+            }
+
+            .timeline-container {
+                max-width: 100%;
+            }
+
+            .timeline-item {
+                padding-left: 50px;
+            }
+
+            .timeline-dot {
+                left: 12px;
+            }
+
+            .timeline-line {
+                left: 16px;
+            }
+
             .links-row-3,
             .links-row-4,
             .links-row-5,
@@ -975,11 +1242,74 @@
                         
                         <!-- 帮助按钮区域 -->
                         <div class="help-button-wrapper">
-                            <a href="https://bytedance.sg.larkoffice.com/docx/SqK1dks81om8Etx0B6ClkxQTgSh#share-Hp26dwdUmojiBQxyrW2l8C8xgRe" target="_blank" class="help-button" data-i18n="help-button">
-                                💡 如何解决问题？
-                            </a>
-                            <div class="help-label" data-i18n="help-label">点击查看解决问题常规流程👆</div>
+                            <div class="help-button-container">
+                                <a href="https://bytedance.sg.larkoffice.com/docx/SqK1dks81om8Etx0B6ClkxQTgSh#share-Hp26dwdUmojiBQxyrW2l8C8xgRe" target="_blank" class="help-button" data-i18n="help-button">
+                                    💡 如何解决问题？
+                                </a>
+                                <div class="help-label" data-i18n="help-label">点击查看解决问题常规流程👆</div>
+                            </div>
+                            <div class="help-button-container">
+                                <a href="https://bytedance.larkoffice.com/wiki/USdow90cxi8Vrsk6SO0cqithnZe?from=from_parent_docx" target="_blank" class="help-button" data-i18n="qa-quick-guide">
+                                    ❓ Q&A快速指引
+                                </a>
+                                <div class="help-label" data-i18n="qa-quick-guide-label">点击查看常见问题解答👆</div>
+                            </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 卖家起量关键动线 -->
+        <section class="timeline-section">
+            <h2 class="timeline-section-title" data-i18n="timeline-section-title">卖家起量关键动线</h2>
+            <div class="timeline-container">
+                <div class="timeline-item" data-step="1" onclick="openTimelineModal(1)">
+                    <div class="timeline-header">
+                        <span class="timeline-number">01</span>
+                        <span class="timeline-title" data-i18n="timeline-shop-entry">开店入驻</span>
+                    </div>
+                </div>
+                <div class="timeline-item" data-step="2" onclick="openTimelineModal(2)">
+                    <div class="timeline-header">
+                        <span class="timeline-number">02</span>
+                        <span class="timeline-title" data-i18n="timeline-product-selection">选品上品</span>
+                    </div>
+                </div>
+                <div class="timeline-item" data-step="3" onclick="openTimelineModal(3)">
+                    <div class="timeline-header">
+                        <span class="timeline-number">03</span>
+                        <span class="timeline-title" data-i18n="timeline-content-marketing">内容带货</span>
+                    </div>
+                </div>
+                <div class="timeline-item" data-step="4" onclick="openTimelineModal(4)">
+                    <div class="timeline-header">
+                        <span class="timeline-number">04</span>
+                        <span class="timeline-title" data-i18n="timeline-creator-cooperation">达人合作</span>
+                    </div>
+                </div>
+                <div class="timeline-item" data-step="5" onclick="openTimelineModal(5)">
+                    <div class="timeline-header">
+                        <span class="timeline-number">05</span>
+                        <span class="timeline-title" data-i18n="timeline-advertising">广告投放</span>
+                    </div>
+                </div>
+                <div class="timeline-item" data-step="6" onclick="openTimelineModal(6)">
+                    <div class="timeline-header">
+                        <span class="timeline-number">06</span>
+                        <span class="timeline-title" data-i18n="timeline-fulfillment">发货履约</span>
+                    </div>
+                </div>
+                <div class="timeline-item" data-step="7" onclick="openTimelineModal(7)">
+                    <div class="timeline-header">
+                        <span class="timeline-number">07</span>
+                        <span class="timeline-title" data-i18n="timeline-service-management">用户评价和客服管理</span>
+                    </div>
+                </div>
+                <div class="timeline-item" data-step="8" onclick="openTimelineModal(8)">
+                    <div class="timeline-header">
+                        <span class="timeline-number">08</span>
+                        <span class="timeline-title" data-i18n="timeline-advanced-selling">大卖进阶</span>
                     </div>
                 </div>
             </div>
@@ -1024,6 +1354,17 @@
                     <span>liwenyuan.034@bytedance.com</span>
                 </a>
             </div>
+        </div>
+    </div>
+
+    <!-- 时间轴详细内容模态框 -->
+    <div class="modal" id="timelineModal" onclick="closeTimelineModalOnBackdrop(event)">
+        <div class="modal-content timeline-modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2 class="modal-title" id="timelineModalTitle"></h2>
+                <button class="close-btn" onclick="closeTimelineModal()">×</button>
+            </div>
+            <div id="timelineModalBody" class="timeline-content-text"></div>
         </div>
     </div>
 
@@ -1126,6 +1467,1462 @@
             }).join('');
         }
 
+        // 时间轴详细内容数据
+        const timelineContentData = {
+            1: {
+                title: '开店入驻',
+                content: `
+                    <h4>一、开店阶段：明确店铺类型与准备材料</h4>
+                    <p>在开始注册前，卖家必须首先确定店铺类型，因为所需资质和流程有显著差异。</p>
+                    
+                    <span class="step-title">步骤 1：确定店铺类型（本土店 vs. 跨境店）</span>
+                    <p><strong>墨西哥本土店</strong>：适用于在墨西哥当地有备货、使用墨西哥本地公司资料的卖家。</p>
+                    <p><strong>墨西哥跨境店</strong>：适用于持有中国大陆或香港公司营业执照的卖家。</p>
+                    
+                    <span class="step-title">步骤 2：准备核心入驻材料</span>
+                    <p>根据店铺类型，准备对应的必备文件。所有文件需确保真实、有效且在要求期限内。</p>
+                    
+                    <table class="timeline-content-table">
+                        <thead>
+                            <tr>
+                                <th>店铺类型</th>
+                                <th>必须准备的材料</th>
+                                <th>关键信息与要求</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>本土店（企业）</td>
+                                <td>
+                                    <ul>
+                                        <li>墨西哥本地营业执照</li>
+                                        <li>RFC 税号文件</li>
+                                        <li>法人身份证件</li>
+                                        <li>墨西哥手机号与邮箱</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>RFC 文件必须是 60 天内最新下载的版本。</li>
+                                        <li>法人需持有墨西哥护照、居留卡（永居）或 INE 卡（投票凭证）。</li>
+                                        <li>一套资料最多可开 5 个店铺。</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>本土店（个人）</td>
+                                <td>
+                                    <ul>
+                                        <li>个人有效身份证件</li>
+                                        <li>RFC 税号文件（如适用）</li>
+                                        <li>墨西哥手机号与邮箱</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>支持的个人证件包括：护照或国民身份证（INE 卡）。</li>
+                                        <li>个人开店可开 1 个店铺。</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>跨境店</td>
+                                <td>
+                                    <ul>
+                                        <li>中国大陆或香港营业执照</li>
+                                        <li>法人身份证原件</li>
+                                        <li>UBO（最终受益人）信息</li>
+                                        <li>RFC 税号文件（可选）</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>必须通过客户经理（AM）获取定邀码申请，AM 可选择李文元。</li>
+                                        <li>入驻主体与后续提交流水的主体必须一致，否则需补充关联材料。</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <span class="step-title">步骤 3：通过定邀链接开始注册</span>
+                    <p><strong>关键操作</strong>：务必使用客户经理提供的定邀注册链接进行注册。</p>
+                    <p><strong>关键信息</strong>：</p>
+                    <ul>
+                        <li>每个链接仅支持注册一个店铺。</li>
+                        <li>建议一个类目开设一个店铺，且定邀链接请勿转发。</li>
+                    </ul>
+                    
+                    <span class="step-title">步骤 4：选择主体类型并填写信息</span>
+                    <p>根据 "企业" 或 "个人" 执照，后续步骤数量不同。</p>
+                    <p><strong>对于企业卖家</strong>：</p>
+                    <ul>
+                        <li><strong>填写公司信息</strong>：包括公司名称、注册日期、RFC 号码及文件、公司注册地址等。</li>
+                        <li><strong>填写法人信息</strong>：进行身份验证并填写个人信息。</li>
+                        <li><strong>填写店铺信息</strong>：设置店铺名称、绑定联系邮箱和电话。</li>
+                    </ul>
+                    <p><strong>对于个人卖家</strong>：</p>
+                    <ul>
+                        <li><strong>填写个人信息</strong>：直接进行身份验证并填写个人详情。</li>
+                        <li><strong>填写店铺信息</strong>：设置店铺名称、绑定联系邮箱和电话。</li>
+                    </ul>
+                    
+                    <span class="step-title">步骤 5：完成法人身份验证（关键步骤）</span>
+                    <p><strong>关键操作</strong>：在填写法人 / 个人信息页，点击 "验证" 按钮，按指引拍摄身份证件。</p>
+                    <p><strong>必须知道的关键信息</strong>：</p>
+                    <ul>
+                        <li>必须拍摄证件原件，扫描件或照片无效。</li>
+                        <li>可用电脑或手机操作。若用电脑，会生成二维码，需用手机扫码后拍摄。</li>
+                        <li>验证通过后，按钮旁会出现 "✅" 标识，方可继续提交。</li>
+                    </ul>
+                    
+                    <span class="step-title">步骤 6：填写物流信息</span>
+                    <p><strong>关键操作</strong>：在后台准确填写发货地址与退货地址。</p>
+                    <p><strong>必须知道的关键信息</strong>：若发货与退货地址不同，必须取消勾选 "同地址" 选项，并单独填写退货地址。</p>
+                    <p><strong>重要性</strong>：此步骤务必在开店后立刻完成，以便物流商能提前联系您。</p>
+                    
+                    <span class="step-title">步骤 7：填写税务信息</span>
+                    <p><strong>关键操作</strong>：输入 RFC 税号并上传对应的税务文件。</p>
+                    <p><strong>必须知道的关键信息</strong>：在税务类型中选择 "tax incorporation"。</p>
+                `
+            },
+            2: {
+                title: '选品上品',
+                content: `
+                    <h4>墨西哥卖家选品与上品详细流程及核心建议</h4>
+                    <p>基于墨西哥 TikTok Shop 入驻流程，以下为入驻后选品和上品的详细步骤与实操建议，助力高效启动店铺运营。</p>
+                    
+                    <h4>一、选品流程与核心策略</h4>
+                    <p>选品是运营成功的核心前提，需结合数据、供应链与平台特性综合决策。</p>
+                    
+                    <span class="step-title">步骤 1：市场调研与趋势分析</span>
+                    <p><strong>核心思路</strong>：参考亚马逊热卖榜、TTS 榜单、同行业商家爆品等站外榜单，掌握行业最新趋势。</p>
+                    <p><strong>数据工具</strong>：借助 Fastmoss 平台查看墨西哥市场实时经营数据及竞品动态。</p>
+                    
+                    <span class="step-title">步骤 2：结合自身供应链优势筛选</span>
+                    <p>在明确市场趋势后，评估自身供应链能力，筛选具备市场潜力的商品。</p>
+                    <p><strong>评估维度</strong>：结合供应链优势（价格、佣金、产品质量、功能、颜值等），综合选定 3-5 个主推品。</p>
+                    
+                    <span class="step-title">步骤 3：应用选品标准进行最终决策</span>
+                    <p>采用以下标准对候选商品打分，做出最终选品决策：</p>
+                    <table class="timeline-content-table">
+                        <thead>
+                            <tr>
+                                <th>选品标准</th>
+                                <th>具体建议与要求</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>价格与佣金</td>
+                                <td>
+                                    <ul>
+                                        <li><strong>价格优势</strong>：建议对齐或低于行业爆品价格，主流消费区间为 6-20 美元（轻小件、冲动消费品）。</li>
+                                        <li><strong>佣金设置</strong>：新品建议 20% 以上，后期可逐步降低，建议长期保持 15% 以上。</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>产品特性</td>
+                                <td>
+                                    <ul>
+                                        <li><strong>可视化差异化卖点</strong>：至少有 1 个可通过视频直观展示的独特优点。</li>
+                                        <li><strong>受众广泛</strong>：不局限于小众人群。</li>
+                                        <li><strong>非过季产品</strong>：确保产品符合当前季节和市场趋势。</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>物流适配</td>
+                                <td>优先选择重量轻、不易碎、非禁运品，且尺寸符合平台限制的商品。</td>
+                            </tr>
+                            <tr>
+                                <td>成本预留</td>
+                                <td>定价时，除佣金外，为广告、样品成本及平台活动预留空间，建议预留 5% 广告费用、5% 样品费用、10% 大促券成本。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <span class="step-title">步骤 4：小批量测试与优化</span>
+                    <p>选定主推品后，通过小规模投放验证市场反应，再逐步优化调整。</p>
+                    <ul>
+                        <li><strong>测款</strong>：首批订货量建议≥500 件，通过短视频挂车测试商品点击率和转化率。</li>
+                        <li><strong>样品投放</strong>：集中寄送 30-50 件样品给达人，监测商品实时推广数据。</li>
+                        <li><strong>爆款复制</strong>：对日单量≥100 的爆款快速扩量，并开发同类材质、同功能的衍生品。</li>
+                    </ul>
+                    
+                    <span class="step-title">（可选）策略：寻找蓝海产品</span>
+                    <p>中小卖家可避开红海赛道，挖掘需求大、竞争小的蓝海产品。</p>
+                    <p><strong>筛选方式</strong>：通过选品工具筛选商品数量少、竞争度低的细分品类；或对标成功的中小店铺，借鉴其选品思路进行模仿创新。</p>
+                    
+                    <h4>二、上品流程与关键操作</h4>
+                    <p>选品完成后，需在卖家后台规范完成商品上架，把控每一个操作细节。</p>
+                    
+                    <span class="step-title">上架前关键检查</span>
+                    <p><strong>关闭自动加入联盟</strong>：进入卖家后台「Affiliate -> Open Collaboration」，将右上角的「Auto add product」选项设置为「Off」。此举可避免新商品被自动加入联盟推广，便于自主控制推广节奏。</p>
+                    
+                    <span class="step-title">开始上品操作</span>
+                    <p><strong>品牌信息填写</strong>：</p>
+                    <ul>
+                        <li><strong>选择品牌</strong>：可在后台搜索已有品牌，直接关联使用。</li>
+                        <li><strong>新建品牌</strong>：若无对应品牌，点击「add new brand」新建，按要求上传商标注册文件即可。</li>
+                    </ul>
+                    <p><strong>产品重量设置</strong>：填写产品重量时，务必标注单件重量，切勿填写整箱重量，避免影响物流计费标准和客户购物体验。</p>
+                    
+                    <h4>三、商品详情页优化建议（提升转化率）</h4>
+                    <p>上品并非单纯填写信息，而是通过优化展示内容吸引用户购买，核心优化要点如下：</p>
+                    
+                    <span class="step-title">图片与视频要求（强制建议）</span>
+                    <ul>
+                        <li><strong>图片</strong>：至少上传 5 张高清图片，尺寸为 600x600 像素；包含 1 张主图，至少 4 张辅图展示产品不同角度、细节及使用场景。</li>
+                        <li><strong>视频</strong>：必须上传商品视频以提升销量，建议视频比例为 9:16、画质为高清，内容需完整展示产品全貌，并重点突出核心卖点。</li>
+                    </ul>
+                    
+                    <span class="step-title">其他详情页优化要点</span>
+                    <ul>
+                        <li><strong>产品标题</strong>：简洁清晰，字符数控制在 25-200 之间，包含品牌、产品类型、关键特征、尺寸 / 数量等核心信息。</li>
+                        <li><strong>产品类别</strong>：精准选择最相关的主类别和子类别，直接影响商品搜索曝光效果。</li>
+                        <li><strong>产品描述</strong>：详细且有条理，字符数至少 500，明确说明产品特点、使用用途、规格尺寸、护理说明及保修信息。</li>
+                    </ul>
+                    
+                    <h4>四、常见问题与资源</h4>
+                    
+                    <span class="step-title">差评处理</span>
+                    <p>差评率过高会导致商品下架或店铺限流，平台不支持直接干预删除差评。商家需主动联系用户，提供道歉、发券、退款等售后解决方案，并针对问题整改产品质量和仓库发货流程。</p>
+                    
+                    <span class="step-title">物流与丢件问题</span>
+                    <p>若遇用户反馈未收货、货物丢失等问题，可通过店铺后台「Help Center -> Ticket」提交工单，详细描述问题情况，平台客服将介入判定责任并协助处理。</p>
+                    
+                    <span class="step-title">进一步学习</span>
+                    <p>若遇后台操作、平台政策等细节问题，可随时访问卖家大学，或查阅《TikTok Shop 墨西哥运营手册》获取最新官方指南。</p>
+                `
+            },
+            3: {
+                title: '内容带货',
+                content: `
+                    <h4>商家自卖视频与直播生产全流程指南与优化建议</h4>
+                    <p>基于商家自卖内容运营指南及相关工具文档，梳理短视频与直播从准备到复盘的全流程操作步骤，并结合数据与成功经验提供优化建议，助力商家提升自卖内容运营效率与转化效果。</p>
+                    
+                    <h4>一、短视频生产全流程与优化</h4>
+                    <p>商家短视频运营遵循准备 - 流程 - 标准 - 提升 - 引流五步方法论，各环节流程与优化建议如下：</p>
+                    
+                    <span class="step-title">Step 1 发文准备：夯实基础</span>
+                    <p><strong>流程步骤</strong>：</p>
+                    <ul>
+                        <li><strong>账号绑定与装修</strong>：在商家后台完成 TikTok 账号绑定，优化账号头像、昵称、简介，打造专业品牌形象。</li>
+                        <li><strong>账号定位</strong>：明确账号人设与目标受众，确定核心内容创作方向。</li>
+                        <li><strong>工具熟悉</strong>：学习并掌握商家后台的短视频发文工具操作方法。</li>
+                    </ul>
+                    <p><strong>优化建议</strong>：</p>
+                    <ul>
+                        <li>主动研究行业优质内容与成功案例，找准自身差距，解决运营 "信息差" 问题。</li>
+                        <li>借助平台 "视频灵感工具"，获取同行视频创作灵感、热门音乐及话题推荐，为内容创作提供方向。</li>
+                    </ul>
+                    
+                    <span class="step-title">Step 2 发文流程：高效创作</span>
+                    <p><strong>流程步骤</strong>：</p>
+                    <ul>
+                        <li><strong>脚本创作</strong>：学习电商短视频脚本撰写方法与实操技巧，完成脚本创作。</li>
+                        <li><strong>选品测品</strong>：结合商品特性，筛选适合短视频推广的产品。</li>
+                        <li><strong>工具辅助</strong>：使用 "一键成片""直播高光视频" 等工具，快速生成视频素材，提升创作效率。</li>
+                    </ul>
+                    <p><strong>优化建议</strong>：</p>
+                    <ul>
+                        <li><strong>优化内容结构</strong>：采用前 3 秒钩子 + 场景创意 + 卖点展示 + 利益点刺激的黄金结构。钩子可通过提出用户痛点、设置悬念、运用热门梗等方式，快速抓住用户注意力。</li>
+                        <li><strong>避免内容同质化</strong>：减少对直播间场景的单一依赖，尝试户外、办公室、自然光等多元化拍摄场景，提升内容新鲜度与吸引力。</li>
+                        <li><strong>搭建团队分工体系</strong>：设立短视频小中台，由专人牵头统筹，定期复盘行业优质素材与自产内容，逐步提升团队内容创作标准。</li>
+                    </ul>
+                    
+                    <span class="step-title">Step 3 内容标准：确保质量</span>
+                    <p><strong>流程步骤</strong>：</p>
+                    <ul>
+                        <li><strong>学习质量规范</strong>：研读平台发布的电商短视频内容质量指南，明确优质内容标准。</li>
+                        <li><strong>规避违规风险</strong>：熟悉平台内容违规标准，通过违规案例分享开展自查自纠，降低违规概率。</li>
+                        <li><strong>参考优质案例</strong>：研究平台提供的优质短视频案例集，吸收借鉴成功创作经验。</li>
+                    </ul>
+                    <p><strong>优化建议</strong>：</p>
+                    <ul>
+                        <li>发布前使用 "视频预检" 功能，通过平台模型检测视频中的违规或低质信息，提前整改，有效降低违规风险。</li>
+                        <li><strong>重视素材质量</strong>：高质量内容是打造爆款的核心，优质素材能显著提升视频爆款率。</li>
+                    </ul>
+                    
+                    <span class="step-title">Step 4 表现提升：数据分析</span>
+                    <p><strong>流程步骤</strong>：</p>
+                    <ul>
+                        <li><strong>核心指标监控</strong>：了解观看次数、互动率、转化率等核心数据指标的定义与解读方法，实时监控视频表现。</li>
+                        <li><strong>视频诊断优化</strong>：利用商家后台的 "视频诊断工具"，对已发布视频进行全面分析，获取平台针对性优化建议。</li>
+                    </ul>
+                    <p><strong>优化建议</strong>：</p>
+                    <ul>
+                        <li><strong>建立定期复盘机制</strong>：不仅关注单条视频数据，更要追踪账号整体数据趋势，从观看点击率、商品曝光率、商品点击率、点击支付率等维度，深入诊断内容问题。</li>
+                        <li><strong>落地诊断建议</strong>：针对工具给出的 "补挂品" 等具体行动建议，及时调整后续内容创作策略，持续优化视频表现。</li>
+                    </ul>
+                    
+                    <span class="step-title">Step 5 广告投流：精准放大</span>
+                    <p><strong>流程步骤</strong>：</p>
+                    <ul>
+                        <li><strong>掌握基础方法</strong>：学习短视频广告投流的基本逻辑、操作技巧与投放流程。</li>
+                        <li><strong>进阶策略学习</strong>：后续可结合更新的课程文档，深入学习复杂投流策略与优化方法。</li>
+                    </ul>
+                    <p><strong>优化建议</strong>：</p>
+                    <ul>
+                        <li><strong>优先投放优质素材</strong>：经过市场验证的优质视频素材，其展现成本、转化效率及引流效果，通常远高于普通素材，投流回报率更高。</li>
+                        <li><strong>使用专属发文功能</strong>：通过商家后台 <strong>"电商视频直发 - SVC"</strong> 功能发布带货视频，相比跳转至 TikTok 端发布，能有效提升投稿成功转化率。</li>
+                    </ul>
+                    
+                    <h4>二、直播生产全流程与优化</h4>
+                    <p>商家直播运营同样分为五大核心步骤，从前期准备到后期复盘形成闭环，具体流程与优化建议如下：</p>
+                    
+                    <span class="step-title">Step 1 直播准备：万事俱备</span>
+                    <p><strong>流程步骤</strong>：</p>
+                    <ul>
+                        <li><strong>基础配置筹备</strong>：完成直播账号绑定与定位，组建专业直播团队，搭建直播场景并准备好拍摄、收音等设备。</li>
+                        <li><strong>学习冷启动方法</strong>：参加 "直播账号冷启动" 相关课程，掌握新号起号的核心技巧与运营思路。</li>
+                    </ul>
+                    <p><strong>优化建议</strong>：</p>
+                    <ul>
+                        <li><strong>遵循新号首播指南</strong>：新开播商家严格按照 "首播 Guide" 五步走操作 —— 绑号、列品、学规则、设事件、开直播，规范完成首播筹备。</li>
+                        <li><strong>提前引流预热</strong>：直播前发布与直播间内容强相关的 "引流短视频"，引导粉丝预约观看，提升直播自然流量基础。</li>
+                    </ul>
+                    
+                    <span class="step-title">Step 2 直播流程：稳扎稳打</span>
+                    <p><strong>流程步骤</strong>：</p>
+                    <ul>
+                        <li><strong>货品规划</strong>：根据 "商家自播选品思路"，完成直播产品组合、定价策略制定与核心卖点提炼。</li>
+                        <li><strong>脚本设计</strong>：设计详细直播脚本，规划产品讲解节奏、互动环节与营销玩法（如秒杀、优惠券、福袋等）。</li>
+                        <li><strong>实时运营与复盘</strong>：直播过程中安排专人实时盯盘，监控数据变化；直播结束后立即开展数据复盘，总结问题与经验。</li>
+                        <li><strong>工具辅助运营</strong>：利用 ACCU 等直播营销工具，提升直播间互动氛围与用户转化效率。</li>
+                    </ul>
+                    <p><strong>优化建议</strong>：</p>
+                    <ul>
+                        <li><strong>实时数据盯盘调整</strong>：直播中重点关注观看人次、GMV、新增粉丝、点击下单率等核心数据，根据数据变化及时调整讲解话术、产品排序与福利发放节奏。</li>
+                        <li><strong>优化货盘结构</strong>：明确引流款、福利款、利润款的组合逻辑，通过价格阶梯设计，降低用户决策成本，提升整体客单价与转化率。</li>
+                        <li><strong>深化达人合作</strong>：尝试与达人开展 "T+S"（短视频 + 直播）深度合作模式，借助达人流量与影响力，显著提升商品曝光度与直播 GMV。</li>
+                    </ul>
+                    
+                    <span class="step-title">Step 3 内容标准：合规创优</span>
+                    <p><strong>流程步骤</strong>：</p>
+                    <ul>
+                        <li><strong>学习基础规范</strong>：研读平台直播内容基础指南，了解直播画面、话术、互动等方面的基本质量要求。</li>
+                        <li><strong>规避违规风险</strong>：学习达人及内容规则白皮书，明确平台直播红线，避免触犯违规条款。</li>
+                    </ul>
+                    <p><strong>优化建议</strong>：</p>
+                    <ul>
+                        <li><strong>定期复盘违规案例</strong>：收集整理 "直播红线 - 违规" 典型案例，针对弹窗警告、断播、扣分等处罚情况开展内部培训，提升团队合规意识。</li>
+                        <li><strong>规范直播话术</strong>：尤其是医疗、保健品等敏感品类，严格规避虚假宣传、绝对化用语（如 "最好""第一"）等违规表述，确保直播合规运营。</li>
+                    </ul>
+                    
+                    <span class="step-title">Step 4 & 5 表现提升与引流：闭环优化</span>
+                    <p><strong>流程步骤</strong>：</p>
+                    <ul>
+                        <li><strong>直播全维度复盘</strong>：使用平台 "直播复盘" 工具，从开播诊断、流量诊断、货盘诊断、场次诊断四个维度，全面分析直播表现，定位问题短板。</li>
+                        <li><strong>多渠道引流投流</strong>：学习直播广告投流方法论，通过付费投流放大直播流量；同时持续制作引流短视频，为直播间持续输送自然流量。</li>
+                    </ul>
+                    <p><strong>优化建议</strong>：</p>
+                    <ul>
+                        <li><strong>运用五维四率诊断法</strong>：从 "观看点击率（外层点击进入）→ 商品曝光率 → 商品点击率 → 下单支付率 → 复购率" 逐层分析转化漏斗，精准定位直播各环节的优化点。</li>
+                        <li><strong>实现全域协同运营</strong>：将优质内容创作、精准广告投放、高效达人合作与直播间精细化运营深度联动，形成 "货品 - 内容 - 直播间" 的协同增长闭环，提升整体运营效率。</li>
+                    </ul>
+                    
+                    <h4>三、总结：持续迭代是核心关键</h4>
+                    <p>商家自卖视频与直播的成功，离不开系统化的流程执行与基于数据的持续优化。建议商家充分利用平台提供的课程、工具与诊断功能，从解决信息差入手，通过标准化流程提升团队运营效率；大胆尝试多元化内容创作与营销玩法，同时坚持深度数据复盘，不断迭代优化运营策略，最终实现内容质量与店铺经营效果的同步增长。</p>
+                `
+            },
+            4: {
+                title: '达人合作',
+                content: `
+                    <h4>墨西哥TikTok Shop达人带货全流程、最佳实践与优化指南</h4>
+                    <p>在墨西哥TikTok Shop（TTS）开展达人带货，是借助平台流量与达人影响力实现商品快速曝光、提升销量的核心运营手段，核心在于<strong>高效寻达、精准建联、精细化履约、数据化优化</strong>的全流程闭环管理。本文结合平台运营手册与实战经验，梳理达人带货完整操作流程、落地最佳实践及针对性优化建议，助力商家在墨西哥市场实现达人合作效益最大化。</p>
+                    
+                    <h4>一、达人带货完整流程与核心工作</h4>
+                    <p>达人合作全流程可拆解为<strong>前期准备与团队搭建、达人线索挖掘、筛选与建联、寄样与履约管理、效果追踪与目标管控</strong>五大核心阶段，各阶段环环相扣，需标准化执行与精细化把控。</p>
+                    
+                    <span class="step-title">（一）前期准备与团队搭建</span>
+                    <p>达人带货的高效推进，离不开专业团队的支撑与清晰的职责分工，尤其是初期团队架构的搭建，直接决定达人合作的效率与规模。</p>
+                    <p><strong>1. 团队规模与核心架构</strong>：建议组建<strong>5-10人</strong>的初始达人运营团队，根据业务阶段逐步扩容，核心岗位设置如下：</p>
+                    <ul>
+                        <li><strong>核心运营岗</strong>：统筹整体达人合作策略，制定阶段目标与考核标准，把控团队人效，熟悉TikTok/Instagram/Youtube等拉美主流社交平台规则及墨西哥电商市场特性，负责对接平台行业客户经理（AM）获取资源支持。</li>
+                        <li><strong>全职达人BD岗</strong>：核心负责达人建联文案优化、合作流程标准化、达人回复率与履约率提升，跟进核心达人合作全流程，解决合作中的各类问题。</li>
+                        <li><strong>兼职达人BD岗</strong>：专注于海量达人线索挖掘与联系方式收集，扩大合作达人基数，为全职BD岗提供充足的达人资源储备。</li>
+                    </ul>
+                    <p><strong>2. 前期基础筹备</strong>：明确店铺主推品与合作佣金体系，制定标准化的达人合作方案（含寄样政策、佣金比例、结算方式、内容要求等），搭建达人信息管理表（含达人账号、粉丝数、联系方式、合作状态、内容数据等），实现达人资源的系统化管理。</p>
+                    
+                    <span class="step-title">（二）达人线索挖掘</span>
+                    <p>找到精准、匹配的达人是合作成功的前提，需结合墨西哥市场特性，通过<strong>多渠道、多维度</strong>发掘潜在合作达人，覆盖不同粉丝量级与内容赛道。</p>
+                    <table class="timeline-content-table">
+                        <thead>
+                            <tr>
+                                <th>挖掘渠道</th>
+                                <th>具体操作与核心要点</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>TikTok站内关键词搜索</td>
+                                <td>输入店铺主营商品核心关键词（西语），在搜索结果中筛选发布过相关内容的达人；优先建联<strong>拥有电商权限（视频可挂小黄车）</strong>、带货内容播放量、评论互动率较高的达人，确保达人具备带货基础能力。</td>
+                            </tr>
+                            <tr>
+                                <td>TikTok FYP手刷定向</td>
+                                <td>注册新的TikTok账号，定位墨西哥地区，在"For You Page"推荐流中，对目标品类达人内容进行<strong>停留、点赞、评论、关注</strong>等互动操作，训练平台算法持续推送同类达人，快速积累精准达人线索。</td>
+                            </tr>
+                            <tr>
+                                <td>达人选品广场溯源</td>
+                                <td>在店铺商品详情页，查看平台内优质带货视频案例，点击进入视频发布达人主页，筛选内容风格、粉丝画像与商品匹配度高的达人，这类达人已具备同类商品带货经验，合作转化潜力更高。</td>
+                            </tr>
+                            <tr>
+                                <td>联盟后台定向计划</td>
+                                <td>针对<strong>单价低于30美元</strong>的低客单价、高频消费类商品，在联盟后台批量创建定向合作计划，设置有吸引力的佣金比例，达人添加商品后即可自动挂入橱窗，实现商品曝光与销售的快速起量。</td>
+                            </tr>
+                            <tr>
+                                <td>高播放音乐关联挖掘</td>
+                                <td>找到墨西哥市场内同品类高播放带货视频，点击视频右下角音乐，进入音乐使用列表，筛选使用该音乐的热门带货视频及达人，这类达人熟悉热门流量玩法，内容传播效率更高。</td>
+                            </tr>
+                            <tr>
+                                <td>联盟后台达人广场</td>
+                                <td>利用平台官方达人广场功能，根据<strong>粉丝量级、内容品类、带货数据、合作响应率</strong>等维度筛选达人，广场内达人信息更规范，且部分达人已开通联盟合作权限，建联效率更高。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <span class="step-title">（三）筛选与建联达人</span>
+                    <p>墨西哥市场达人资源丰富，需建立明确的筛选标准，同时制定标准化的建联流程，实现"大浪淘金，先有后优"的合作策略，逐步提升合作达人质量。</p>
+                    <p><strong>1. 核心筛选原则</strong>：<strong>勤奋度为首要考核指标</strong>，其次是内容数据与粉丝匹配度。墨西哥市场内，5K-100K粉丝量级的中腰部电商达人，虽粉丝数不高，但粉丝粘性强、内容发布频率高、带货转化意愿足，是初期合作的核心群体。</p>
+                    <p><strong>2. 具体筛选标准</strong>：</p>
+                    <ul>
+                        <li>优先查看达人<strong>近2周的内容发布数量</strong>，确保每周发布≥3条带货内容，避免合作"佛系达人"。</li>
+                        <li>其次关注视频平均播放量、评论互动率、商品点击转化率，粉丝画像需与商品目标受众（如年龄、性别、消费能力）匹配。</li>
+                        <li>排除内容违规、粉丝注水、带货口碑差（如评论区大量差评）的达人。</li>
+                    </ul>
+                    <p><strong>3. 标准化建联流程</strong>：建立"<strong>获取联系方式→首次触达→建立联系→确认合作→寄样→监督履约</strong>"的全流程工作流，每个环节设定转化目标，提升整体合作效率：</p>
+                    <ul>
+                        <li><strong>获取联系方式</strong>：从达人主页简介、评论区、私信自动回复中收集邮箱、WhatsApp等核心联系方式，优先选择WhatsApp（墨西哥主流社交沟通工具）。</li>
+                        <li><strong>首次触达</strong>：发送标准化的合作邀约文案，内容需简洁明了，包含品牌介绍、主推品信息、佣金比例、寄样政策等核心信息，避免冗长表述。</li>
+                        <li><strong>建立联系</strong>：及时跟进达人回复，解答达人关于合作、佣金、物流等疑问，针对优质达人可适当调整合作条件，提升合作意愿。</li>
+                        <li><strong>确认合作</strong>：与达人达成合作共识后，明确内容发布要求（如视频时长、卖点展示、发布时间）、佣金结算方式、内容授权等细节，形成书面合作确认。</li>
+                        <li><strong>寄样与履约监督</strong>：进入后续寄样环节，同步建立达人履约跟踪表，记录各环节进度。</li>
+                    </ul>
+                    
+                    <span class="step-title">（四）寄样与履约管理</span>
+                    <p>寄样是推动达人产出内容的关键环节，需精细化操作，从寄样前核对到收货后督促，全流程把控，确保达人按时、按质完成内容创作。</p>
+                    <p><strong>1. 寄样前：精准核对，充分准备</strong></p>
+                    <ul>
+                        <li>核对达人收件信息（姓名、地址、联系方式）与样品信息（数量、规格、颜色、配件），确保信息无误，避免物流失误。</li>
+                        <li>样品数量建议<strong>每个商品寄出2-3件</strong>，方便达人多角度拍摄、多次发布内容，提升内容产出质量与数量。</li>
+                        <li>随样品附上<strong>产品卖点卡（西语）</strong>、合作要求说明，为达人内容创作提供参考，减少沟通成本。</li>
+                    </ul>
+                    <p><strong>2. 寄样中：高效物流，实时同步</strong></p>
+                    <ul>
+                        <li>选择墨西哥本地或国际加急物流渠道，缩短样品运输时间，提升达人合作体验。</li>
+                        <li>实时跟踪物流信息，将物流单号、预计到货时间同步给达人，到货前1-2天提醒达人注意签收。</li>
+                    </ul>
+                    <p><strong>3. 收货后：及时督促，素材支持</strong></p>
+                    <ul>
+                        <li>达人签收样品后，立即提醒其在<strong>1周内完成内容创作与发布</strong>，明确时间节点，避免拖延。</li>
+                        <li>为达人提供品牌优质素材（如产品高清图、核心卖点视频、爆款带货案例），帮助达人快速完成内容创作，确保内容符合品牌要求。</li>
+                    </ul>
+                    <p><strong>4. 履约效率监控</strong>：设定明确的履约考核目标，<strong>1周内完成内容发布的达人数占比需达到50%，1个月内占比提升至80%</strong>；若履约率低于目标，需分析原因（如样品问题、沟通不畅、达人积极性不足），针对性优化，如对拖延达人进行友好提醒，对多次违约达人终止合作。</p>
+                    
+                    <span class="step-title">（五）效果追踪与团队目标管控</span>
+                    <p>为达人运营团队设定<strong>阶段性、可量化</strong>的目标，从"过程导向"逐步过渡到"效果导向"，通过数据追踪把控合作效果，持续优化团队工作效率。</p>
+                    <p><strong>1. 第1阶段：过程导向（初期）</strong></p>
+                    <ul>
+                        <li><strong>核心目标</strong>：快速扩大达人合作规模，积累内容素材与合作经验。</li>
+                        <li><strong>考核指标</strong>：每位达人BD每周寄出<strong>15-20个样品</strong>，每周推动达人产出<strong>约20条带货视频</strong>，重点关注样品寄出量、达人建联数、内容产出量等过程指标。</li>
+                    </ul>
+                    <p><strong>2. 第2阶段：效果导向（中期）</strong></p>
+                    <ul>
+                        <li><strong>核心目标</strong>：提升单达人合作效益，实现销量与利润的双增长。</li>
+                        <li><strong>考核指标</strong>：短视频分发约1周后，实现<strong>单达人日均GMV达到1000美元</strong>，重点关注达人带货GMV、转化率、客单价、佣金成本等效果指标。</li>
+                    </ul>
+                    <p><strong>3. 数据追踪工具</strong>：利用TikTok Shop联盟后台、商家后台数据模块，实时监控达人带货数据，搭建达人合作效果分析表，对达人进行分层管理（头部、腰部、尾部），针对高产出达人深化合作，对低产出达人优化或终止合作。</p>
+                    
+                    <h4>二、达人带货关键优化建议</h4>
+                    <p>结合墨西哥市场用户特性、平台规则及实战经验，从<strong>内容转化、直播体验、达人策略、平台工具</strong>四大维度提出优化建议，解决达人带货中的常见问题，提升合作效果。</p>
+                    
+                    <span class="step-title">（一）提升短视频转化效率</span>
+                    <p>墨西哥市场用户对短视频购物的认知度与操作熟练度相对较低，需在内容中进行<strong>明确、直白</strong>的引导，减少转化环节的流失，提升商品点击与下单率。</p>
+                    <ul>
+                        <li><strong>清晰标注下单方式</strong>：在视频画面中通过<strong>文字贴纸、口播</strong>的方式，明确告诉用户"点击视频左侧/下方小黄车锚点"进行下单，标注锚点具体位置，避免用户找不到下单入口。</li>
+                        <li><strong>突出促销活动信息</strong>：墨西哥用户对优惠活动敏感度高，但平台促销信息（如免邮、折扣、满减）无法在视频内直接外显，需在视频中重点口播或用醒目文字展示，如"限时免邮""立减20%""首单优惠"等，刺激用户即时下单。</li>
+                        <li><strong>规避引导歧义</strong>：严格引导用户<strong>直接在带货视频内完成下单</strong>，避免出现"前往我的主页下单""私信我购买"等引导语，此类操作会增加用户决策成本，导致转化流失，同时也可能违反平台电商运营规则。</li>
+                        <li><strong>适配本地语言与文化</strong>：视频文案、口播需使用<strong>地道的墨西哥西语</strong>，避免直译导致的表达生硬；融入墨西哥本地文化元素（如节日、民俗、热门梗），拉近与用户的距离，提升内容共鸣感。</li>
+                    </ul>
+                    
+                    <span class="step-title">（二）优化直播带货与内容体验</span>
+                    <p>直播带货是达人带货的重要形式，针对墨西哥用户的观看习惯，优化直播内容与形式，提升直播间互动率与转化效率。</p>
+                    <ul>
+                        <li><strong>精简直播内容，聚焦产品核心</strong>：指导合作达人<strong>缩短无效直播时长</strong>，减少与产品无关的闲聊、互动，将直播重点放在<strong>产品演示、核心卖点讲解、优惠活动介绍</strong>上，墨西哥用户更关注产品本身的实用性与性价比。</li>
+                        <li><strong>提升购物引导醒目度</strong>：优化直播间画面布局，将购物车、商品链接、折扣信息等核心元素放在<strong>画面显眼位置</strong>，通过动态贴纸、主播口播反复提醒；减少直播间无关装饰、弹窗等视觉干扰，让用户快速聚焦购物入口。</li>
+                        <li><strong>把控直播节奏，增加福利互动</strong>：在直播中设置<strong>定时秒杀、福袋抽奖、评论互动有礼</strong>等环节，提升直播间用户停留时长；针对墨西哥用户的购物习惯，在晚间黄金时段（当地时间19:00-23:00）安排直播，提升直播流量。</li>
+                    </ul>
+                    
+                    <span class="step-title">（三）拓展多元化达人合作策略</span>
+                    <p>除了传统的网红达人，结合墨西哥市场电商发展趋势，拓展新型达人合作模式，挖掘更多流量增长点。</p>
+                    <ul>
+                        <li><strong>重点关注"社交卖家"</strong>：引入并培养墨西哥本地的<strong>小型企业主、个体创业者</strong>等"社交卖家"，这类群体虽非传统网红，但熟悉本地市场，能频繁发布可购物内容，且粉丝群体更精准，是时尚、家居、美妆等品类的重要增长驱动力；可为其提供更灵活的合作政策（如更高佣金、专属优惠），鼓励其持续推广。</li>
+                        <li><strong>达人分层精细化运营</strong>：对合作达人进行分层管理，针对不同层级达人制定差异化合作策略：
+                            <ul>
+                                <li><strong>头部达人</strong>：粉丝数100K以上，内容影响力大，重点合作大促节点、新品发布，采用"固定服务费+高佣金"的合作模式，快速提升品牌知名度。</li>
+                                <li><strong>腰部达人</strong>：粉丝数5K-100K，转化效率高，是核心合作群体，采用"高佣金+销量奖励"的模式，提升其带货积极性。</li>
+                                <li><strong>尾部达人/素人</strong>：粉丝数5K以下，数量庞大，采用"低门槛佣金+免费寄样"的模式，实现商品内容的海量覆盖。</li>
+                            </ul>
+                        </li>
+                        <li><strong>深化"短视频+直播"组合合作</strong>：与优质达人签订"T+S"（短视频+直播）深度合作协议，让达人先发布短视频为直播预热引流，再通过直播进行深度产品讲解与转化，形成"短视频种草-直播拔草"的闭环，提升整体带货效果。</li>
+                    </ul>
+                    
+                    <span class="step-title">（四）充分利用平台资源与工具</span>
+                    <p>借助TikTok Shop平台提供的官方资源与工具，为达人带货赋能，加速商品曝光与转化，降低运营成本。</p>
+                    <ul>
+                        <li><strong>积极参与联盟官方活动</strong>：针对有爆品、有投流预算的商家，主动向平台行业AM申请参与<strong>联盟达人任务、主题挑战赛、大促专场</strong>等官方活动，平台会为活动提供流量扶持，同时整合优质达人资源，提升合作效率与商品曝光度。</li>
+                        <li><strong>结合广告投流放大内容效果</strong>：利用平台<strong>LSA（直播带货广告）、VSA（短视频广告）</strong>等投流工具，为达人优质带货内容进行付费加热，精准触达更多潜在用户，实现人群扩圈与转化提升；优先投放达人播放量、互动率较高的内容，投流回报率更高。</li>
+                        <li><strong>获取达人视频广告授权</strong>：如需将达人带货视频用于平台内广告投放，按平台指引向达人获取<strong>AD code（广告授权码）</strong>，确保广告投放的合规性，避免版权纠纷；授权后的达人视频可作为广告素材，持续为商品引流。</li>
+                        <li><strong>利用平台数据工具优化合作策略</strong>：通过联盟后台的<strong>达人数据报表、内容效果分析</strong>等工具，深入分析不同达人、不同内容形式的带货数据，总结成功经验，为后续达人筛选、内容创作提供数据支撑，持续优化达人合作策略。</li>
+                    </ul>
+                    
+                    <h4>三、总结</h4>
+                    <p>墨西哥TikTok Shop达人带货的成功，并非单一环节的优化，而是<strong>全流程的系统化运营</strong>与<strong>基于数据的持续迭代</strong>。商家需从团队搭建、达人挖掘、建联履约到效果优化，建立标准化的操作流程；同时结合墨西哥市场的本地特性，优化内容引导与合作策略，充分利用平台资源与工具，实现达人资源的高效整合与利用。</p>
+                    <p>在运营过程中，需始终坚持"先有量，后有质"的原则，逐步积累优质达人资源，通过深度合作与精细化运营，让达人带货成为店铺在墨西哥市场实现销量增长与品牌本土化的核心驱动力。</p>
+                `
+            },
+            5: {
+                title: '广告投放',
+                content: `
+                    <h4>TTS广告投放全流程指南与优化策略</h4>
+                    <p>本指南基于TTS（TikTok Shop）官方运营逻辑与实战经验，系统梳理广告投放从激活开通、核心产品认知、全流程实操，到效果优化、问题排查及墨西哥市场本地适配的完整内容，助力商家快速上手广告投放，实现流量与销量的精准增长。</p>
+                    
+                    <h4>一、前期准备：广告账户激活与开通</h4>
+                    <p>启动TTS广告投放的核心前提是完成账户激活，目前主流的广告系列创建路径有两种，商家可根据自身运营习惯选择，两种路径均需提前完成卖家账户与广告账户的绑定认证，确保资质合规。</p>
+                    
+                    <span class="step-title">（一）核心激活路径</span>
+                    <p><strong>LIVE GMV Max（直播GMV最大化）</strong></p>
+                    <ul>
+                        <li>1. 卖家中心（Seller Center, SC）：关联直播间后创建广告</li>
+                        <li>2. TikTok广告管理器（TikTok Ads Manager, TTAM）：绑定直播账户后设置投放</li>
+                    </ul>
+                    <p>专为直播引流转化设计，可精准为直播间输送流量，适合大促直播、新品首发直播等场景</p>
+                    
+                    <span class="step-title">（二）激活前置要求</span>
+                    <ul>
+                        <li>完成TTS店铺入驻与资质审核，确保店铺状态正常，无违规限制</li>
+                        <li>绑定合规的结算账户，完成税务信息备案（如墨西哥市场需提前准备RFC税号）</li>
+                        <li>广告账户完成实名认证，签署广告投放协议，明确计费规则与违规条款</li>
+                    </ul>
+                    
+                    <h4>二、核心认知：GMV Max产品深度解析</h4>
+                    <p>GMV Max是TTS Ads专为电商商家打造的自动化投放解决方案，核心价值在于通过平台算法整合付费流量与自然流量，实现全渠道投资回报率（ROI）最大化，大幅降低人工操作成本，尤其适合缺乏专业投放团队的商家。</p>
+                    
+                    <span class="step-title">（一）两大核心产品类型定义</span>
+                    <p><strong>Product GMV Max（商品GMV Max）</strong>：以单个或多个商品的销量增长为核心目标，系统自动筛选商品相关创意素材，定向高潜力购买人群，覆盖短视频带货（VSA）、图文带货（PSA）等多种广告格式，助力商品快速起量。</p>
+                    <p><strong>LIVE GMV Max（直播GMV Max）</strong>：聚焦直播间引流与转化，系统自动匹配对直播内容感兴趣的用户，通过广告投放为直播间提升观看人数、互动率与下单率，可配合直播节奏灵活调整投放策略。</p>
+                    
+                    <span class="step-title">（二）GMV Max自动化核心逻辑</span>
+                    <p>该系统的核心优势在于全链路自动化运营，从创意筛选到预算分配均无需高频人工干预，具体自动化环节如下：</p>
+                    <table class="timeline-content-table">
+                        <thead>
+                            <tr>
+                                <th>广告运营杠杆</th>
+                                <th>是否自动化</th>
+                                <th>详细说明</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>创意选择</td>
+                                <td>是</td>
+                                <td>自动抓取商家账户内所有带商品链接的视频素材，智能筛选优质素材创建广告，无需人工逐一上传与筛选</td>
+                            </tr>
+                            <tr>
+                                <td>联盟海量授权视频</td>
+                                <td>是</td>
+                                <td>自动获取联盟开放计划等渠道中达人授权的海量创意视频，并进行多维度测试，扩大创意素材池，提升广告效果</td>
+                            </tr>
+                            <tr>
+                                <td>人群定向</td>
+                                <td>是</td>
+                                <td>基于商品属性、用户行为数据（如浏览、收藏、购买记录），自动定位能最大化GMV的目标用户群体，无需人工设置复杂定向条件</td>
+                            </tr>
+                            <tr>
+                                <td>广告格式与版位</td>
+                                <td>是</td>
+                                <td>在单个广告系列中自动创建VSA（短视频广告）和PSA（图文广告）两种核心格式，并根据用户场景自动匹配最佳投放版位（如For You Page、搜索结果页等）</td>
+                            </tr>
+                            <tr>
+                                <td>预算分配与系列优化</td>
+                                <td>是</td>
+                                <td>自动分配各素材、各渠道的预算占比，实时监控广告表现，动态调整支出节奏，确保达成预设ROI目标，全程无需人工频繁调整</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h4>三、实操核心：广告投放全流程最佳实践</h4>
+                    <p>基于GMV Max的自动化特性，投放实操的核心在于做好"基础设置+关键杠杆把控"，以下是从广告创建到日常运营的全流程最佳实践：</p>
+                    
+                    <span class="step-title">（一）广告系列创建关键设置</span>
+                    <ul>
+                        <li><strong>明确投放目标</strong>：根据运营需求选择"Product GMV Max"或"LIVE GMV Max"，目标一旦设定，建议不轻易更改，避免影响系统算法优化方向。</li>
+                        <li><strong>合理设定ROI目标</strong>：优先参考系统基于商家历史运营数据给出的推荐值，避免盲目设定过高或过低目标。若为新店铺无历史数据，可参考行业平均ROI水平，设置略低于行业均值的目标，帮助系统快速起量。</li>
+                        <li><strong>科学规划预算</strong>：首次投放建议将预算设置为日常运营（BAU）预算的1.5至2倍，确保系统有充足资金进行素材测试与人群探索；后续根据广告表现逐步调整，避免预算过低导致系统无法充分优化。</li>
+                        <li><strong>精准选择产品</strong>：优先选择店铺内的畅销品、高好评率产品投放，这类产品转化基础好，更容易获得系统认可；也可将ROI目标相近的产品分组到同一系列，便于系统统一优化，提升整体投放效率。</li>
+                        <li><strong>灵活选择竞价策略</strong>：
+                            <ul>
+                                <li><strong>目标ROI</strong>：适合有明确利润要求、固定ROI目标的商家，系统将围绕目标ROI优化投放，确保收益稳定。</li>
+                                <li><strong>最大投放</strong>：适合有明确广告预算、追求销量规模的商家，系统将在预算范围内最大化GMV，但不保证ROI稳定，需密切监控表现。</li>
+                                <li><strong>创意助推</strong>：适合发现优质创意素材但曝光不足的场景，系统将把超过80%的额外预算倾斜给该素材，快速放大效果，但不保证ROI，建议仅对已验证的优质素材使用。</li>
+                            </ul>
+                        </li>
+                        <li><strong>创意素材设置</strong>：强烈建议选择"自动选择"创意模式，让系统充分利用所有可用视频素材进行测试；同时，务必授权联盟达人视频，丰富素材池，提升广告测试成功率。若发现部分素材表现极差（如点击率、转化率远低于均值），可手动移除，避免占用预算。</li>
+                    </ul>
+                    
+                    <span class="step-title">（二）日常运营核心要点</span>
+                    <ul>
+                        <li><strong>避免频繁调整</strong>：GMV Max系统需要一定时间积累数据以优化算法，建议每天调整ROI目标不超过1次，每次调整后至少运行3个完整自然日，待数据稳定后再评估效果，切勿频繁修改预算、目标等核心参数。</li>
+                        <li><strong>监控预算使用率</strong>：每日关注预算使用率，确保不低于80%；若预算使用率过低，可能是ROI目标过高或定向过窄，需适当调整以加速支出。</li>
+                        <li><strong>素材动态更新</strong>：定期上传新的创意素材，保持素材池的新鲜度；对于表现优异的素材，可通过"创意助推"进一步放大效果；对于连续3天表现极差的素材，及时手动关停，节省预算。</li>
+                    </ul>
+                    
+                    <h4>四、效果优化：常见场景问题排查与解决方案</h4>
+                    <p>投放过程中需重点关注"流量（曝光量、点击量）"与"ROAS（广告支出回报率）"两大核心指标，针对不同表现场景，采取针对性优化策略：</p>
+                    
+                    <span class="step-title">场景一：流量与ROAS双低</span>
+                    <p><strong>核心问题</strong>：广告系列未触达足够目标受众，系统无法有效优化，导致曝光不足且转化效率低。</p>
+                    <p><strong>优化操作</strong>：</p>
+                    <ul>
+                        <li><strong>逐步提高预算</strong>：按10%-20%的幅度逐步提升每日预算，确保预算使用率达到80%以上，若预算过低，系统无法充分探索人群，需优先补足预算。</li>
+                        <li><strong>略微降低ROI目标</strong>：适当下调5%-10%的ROI目标，降低系统优化门槛，加速预算支出，帮助系统快速匹配到合适的目标用户，积累转化数据。</li>
+                        <li><strong>更换核心产品</strong>：将投放产品替换为店铺内的畅销品、高转化产品，这类产品有更好的市场基础，更容易获得用户认可，帮助系统快速建立优化模型。</li>
+                        <li><strong>丰富素材池</strong>：上传更多优质创意素材，授权更多联盟达人视频，扩大素材选择范围，提升系统找到优质素材的概率。</li>
+                    </ul>
+                    
+                    <span class="step-title">场景二：流量低但ROAS高</span>
+                    <p><strong>核心问题</strong>：产品与定向匹配度高，转化效果好，但曝光规模不足，未能充分挖掘市场潜力。</p>
+                    <p><strong>优化操作</strong>：</p>
+                    <ul>
+                        <li><strong>授权更多内容</strong>：在GMV Max中授权商家自有有机视频、达人合作视频等，丰富素材池，让系统有更多优质素材进行投放，扩大曝光范围。</li>
+                        <li><strong>批量授权联盟视频</strong>：通过ACA（联盟创意授权）功能，批量授权联盟达人视频转为广告创意，借助达人素材的原生性与吸引力，提升曝光量与转化效率。</li>
+                        <li><strong>合理增加预算</strong>：在ROAS稳定的前提下，按20%-30%的幅度逐步增加每日预算，遵循系统给出的预算建议，避免一次性大幅提价导致系统优化紊乱；同时可开启"创意助推"，放大优质素材的曝光。</li>
+                        <li><strong>拓展投放场景</strong>：若投放的是Product GMV Max，可同步开启LIVE GMV Max，通过直播场景进一步放大销量，提升整体流量规模。</li>
+                    </ul>
+                    
+                    <span class="step-title">场景三：流量高但ROAS低</span>
+                    <p><strong>核心问题</strong>：广告触达人群广泛，但精准度不足，或产品、素材转化能力薄弱，导致销量高但利润低。</p>
+                    <p><strong>优化操作</strong>：</p>
+                    <ul>
+                        <li><strong>提高ROI目标</strong>：适当上调5%-10%的ROI目标，引导系统筛选更精准的高价值用户，降低无效流量占比。</li>
+                        <li><strong>优化产品与定价</strong>：检查投放产品的定价是否合理，是否存在同质化竞争严重、性价比不足的问题；可适当调整产品定价，或增加赠品、优化包装等，提升产品竞争力。</li>
+                        <li><strong>关停低质素材</strong>：筛选素材数据，将点击率、转化率远低于均值的素材手动关停，把预算集中倾斜给优质素材，提升整体转化效率。</li>
+                        <li><strong>优化落地页</strong>：检查商品详情页的图片、视频、文案是否清晰，是否突出核心卖点与优惠信息；优化下单流程，减少用户决策成本，提升页面转化能力。</li>
+                    </ul>
+                    
+                    <h4>五、本地适配：墨西哥市场专属投放建议</h4>
+                    <p>针对墨西哥市场的用户特性、消费习惯与平台规则，需在投放策略上进行针对性调整，提升广告适配度：</p>
+                    
+                    <span class="step-title">（一）预算与投放节奏适配</span>
+                    <ul>
+                        <li><strong>首周预算门槛</strong>：墨西哥市场投放首周总预算建议不低于300美元，确保系统有足够资金探索本地用户群体，建立稳定的优化模型。</li>
+                        <li><strong>黄金时段投放</strong>：墨西哥用户活跃高峰为当地时间19:00-23:00（晚间休闲时段），可在该时段适当提高预算占比，提升广告曝光效率；大促节点（如黑五、圣诞节、墨西哥独立日）需提前2周筹备，增加预算储备。</li>
+                    </ul>
+                    
+                    <span class="step-title">（二）定向与人群适配</span>
+                    <ul>
+                        <li><strong>初期通投策略</strong>：投放前两周建议采用"通投"设置，不限制过窄的人群条件，让系统充分探索墨西哥本地的潜在用户，积累人群数据；两周后根据数据反馈，逐步缩小定向范围，聚焦高价值人群。</li>
+                        <li><strong>地域与语言适配</strong>：定向墨西哥核心消费城市（如墨西哥城、瓜达拉哈拉、蒙特雷），广告素材文案、口播需使用地道的墨西哥西语，避免直译导致的表达生硬；融入本地文化元素（如亡灵节、民俗节日），提升用户共鸣。</li>
+                    </ul>
+                    
+                    <span class="step-title">（三）素材与创意适配</span>
+                    <ul>
+                        <li><strong>素材测试标准</strong>：观察单素材当日ROAS表现，当素材消耗达到35-50美元后，若ROAS仍低于预期（如低于行业均值50%以上），可考虑关停，避免浪费预算；同时需预留充足的归因期（建议7天），等待数据完整回流后再最终评估素材效果。</li>
+                        <li><strong>本地创意灵感</strong>：通过创意灵感中心的"Top Ads"功能，筛选墨西哥地区、所属行业的优质广告案例，查看其创意摘要、互动指标与相关推荐，汲取本地适配的创意思路（如场景选择、话术风格、视觉呈现）。</li>
+                    </ul>
+                    
+                    <span class="step-title">（四）合规与风险规避</span>
+                    <ul>
+                        <li><strong>税务合规</strong>：确保广告投放主体与店铺结算主体一致，提前完成墨西哥RFC税号备案，避免因税务问题影响结算。</li>
+                        <li><strong>广告合规</strong>：严格遵守TikTok广告违规规则，避免使用绝对化用语（如"最好""第一"）、虚假宣传、侵权素材；墨西哥对医疗、保健品、美妆等品类广告审核较严格，需提前确认品类投放权限。</li>
+                    </ul>
+                    
+                    <h4>六、总结：投放成功的核心逻辑</h4>
+                    <p>TTS广告投放的核心在于"借力系统自动化+做好人工精细化把控"：GMV Max的全链路自动化能力可大幅降低操作门槛，商家无需过度干预细节；但需在核心设置（ROI目标、预算、产品、素材）上做好精准把控，同时建立数据监控与复盘机制，针对不同表现场景及时优化。</p>
+                    <p>对于墨西哥等海外市场，需额外关注本地适配性，从预算、定向、素材、合规等维度贴合本地用户需求与平台规则。通过"前期精准设置+中期动态优化+后期数据复盘"的全流程运营，才能让广告投放持续为店铺带来精准流量与稳定销量，实现投放效益最大化。</p>
+                `
+            },
+            6: {
+                title: '发货履约',
+                content: `
+                    <h4>墨西哥TikTok Shop物流模式详细整理</h4>
+                    <p>根据《TikTok Shop墨西哥站运营手册》文档，墨西哥TTS物流模式主要分为<strong>本土物流</strong>和<strong>跨境物流</strong>两大类，每种模式都有其特定的流程、标准和费用结构。</p>
+                    
+                    <h4>一、本土物流模式（L2L本土店）</h4>
+                    
+                    <span class="step-title">1. 基本模式</span>
+                    <ul>
+                        <li><strong>物流类型</strong>：4PL平台尾程物流服务</li>
+                        <li><strong>发货方式</strong>：墨西哥本地仓发货</li>
+                        <li><strong>覆盖区域</strong>：全国覆盖</li>
+                        <li><strong>物流商</strong>：J&T、iMile、Estafeta、AMPM、Bigmart、DHL等</li>
+                    </ul>
+                    
+                    <span class="step-title">2. 发货流程与标准</span>
+                    <p><strong>发货门槛与升级机制</strong>：</p>
+                    <ul>
+                        <li><strong>初始物流</strong>：Estafeta送站模式</li>
+                        <li><strong>升级条件</strong>：每15天进行系统评估，若15天内日均订单大于5单，系统自动切换为J&T/iMile/AMPM/Bigmart上门揽收</li>
+                        <li><strong>升级时间</strong>：每月中旬和月底进行系统自动切换</li>
+                    </ul>
+                    <p><strong>发货地址要求</strong>：</p>
+                    <ul>
+                        <li>提交开店申请后建议立即填写发货地址</li>
+                        <li>填写后2个工作日获知物流服务商匹配</li>
+                        <li>建议尽早与物流服务商取得联系</li>
+                    </ul>
+                    <p><strong>面单打印要求</strong>：</p>
+                    <ul>
+                        <li>使用的海外仓仓储系统需确认已接入TTS API才能打印面单正常发货</li>
+                        <li>自建系统或未接入TTS的仓储系统需要研发操作接入</li>
+                        <li>接入流程参考：<a href="https://bytedance.sg.larkoffice.com/docx/YrpVdE14iohsgNxvdeilAkVfg2M?from=from_copylink" target="_blank">TikTok Shop Partner Center - MX Seller developer Onboarding Guide</a></li>
+                    </ul>
+                    
+                    <span class="step-title">3. 物理规格要求</span>
+                    <ul>
+                        <li><strong>重量要求</strong>：≤30kg</li>
+                        <li><strong>尺寸要求</strong>：
+                            <ul>
+                                <li>包裹单边≤100cm</li>
+                                <li>三边和≤160cm</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <span class="step-title">4. 时效要求</span>
+                    <ul>
+                        <li><strong>准备阶段</strong>：1个工作日内，商家需要准备好包裹，点击【包裹已准备好，等待揽收】（Ready to Ship）</li>
+                        <li><strong>揽收阶段</strong>：3个工作日内，物流服务商上门揽收，扫描取走包裹</li>
+                        <li><strong>取消规则</strong>：7天时间不更新物流信息自动取消订单</li>
+                    </ul>
+                    
+                    <span class="step-title">5. 配送时效</span>
+                    <ul>
+                        <li><strong>正常区域</strong>：1-11工作日送达</li>
+                        <li><strong>偏远地区</strong>：4-14工作日送达</li>
+                        <li><strong>签收方式</strong>：目前支持用户本人签字收货</li>
+                        <li><strong>签收失败处理</strong>：如3次均未成功签收，则会返回卖家发货地址</li>
+                    </ul>
+                    
+                    <span class="step-title">6. 退货处理</span>
+                    <ul>
+                        <li><strong>用户免费退货</strong>：已开通用户免费退货，用户自行投递到Estafeta快递站</li>
+                        <li><strong>运费责任</strong>：
+                            <ul>
+                                <li>商责（如产品质量、货不对板等）：由商家承担</li>
+                                <li>用户不想要：由平台承担</li>
+                            </ul>
+                        </li>
+                        <li><strong>退货流程</strong>：用户须填写退货单号以发起退货，平台侧自动同意</li>
+                        <li><strong>商家操作</strong>：商家需要关注寄回商品状态，如果不同意退款可以在收到产品后选择拒绝</li>
+                    </ul>
+                    
+                    <span class="step-title">7. 物流赔付机制</span>
+                    <ul>
+                        <li><strong>J&T和iMile</strong>：保险上限3000MXN的赔付</li>
+                        <li><strong>Estafeta</strong>：计划Q1内接入，赔付标准上升至3400MXN（等待生效通知）</li>
+                        <li><strong>DHL</strong>：计划Q2接入，赔付标准可调高到15,000MXN</li>
+                    </ul>
+                    
+                    <span class="step-title">8. 费用结构</span>
+                    <ul>
+                        <li><strong>SFP物流费用</strong>：标准运费为售价的6%</li>
+                        <li><strong>费用调整</strong>：2026年1月15日后上调为8%</li>
+                        <li><strong>平台佣金</strong>：6%</li>
+                    </ul>
+                    
+                    <span class="step-title">9. 物流商联系方式</span>
+                    <ul>
+                        <li>J&T: +525549455695/+525640330006/+525549421036/+525630470637</li>
+                        <li>iMile: +52 55 9331 2916</li>
+                        <li>Estafeta: +52 55 5270 8300</li>
+                        <li>AMPM: +52 55 5061 6800</li>
+                        <li>Big Smart：+52 55 9506 9919</li>
+                        <li>DHL：+52 55 5345 7000</li>
+                    </ul>
+                    
+                    <span class="step-title">10. 重要限制</span>
+                    <ul>
+                        <li><strong>不支持3PL卖家自发货</strong></li>
+                        <li><strong>不支持一店多仓</strong></li>
+                        <li><strong>仅支持4PL平台物流</strong></li>
+                    </ul>
+                    
+                    <h4>二、跨境物流模式（POP跨境店）</h4>
+                    
+                    <span class="step-title">1. 基本模式</span>
+                    <ul>
+                        <li><strong>物流类型</strong>：POP跨境直邮/小包发货</li>
+                        <li><strong>发货方式</strong>：从中国发货至墨西哥</li>
+                        <li><strong>两种子模式</strong>：
+                            <ul>
+                                <li>POP本地发货（海外仓模式）</li>
+                                <li>POP小包发货（跨境直邮模式）</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <span class="step-title">2. 发货流程与标准</span>
+                    <p><strong>平台发货建议</strong>：为了提升买家购物体验，跨境商家需要配合平台做好发货时效管理。</p>
+                    <p><strong>上门取件模式</strong>：</p>
+                    <ul>
+                        <li><strong>时间要求</strong>：下单后2个自然日内</li>
+                        <li><strong>商家操作</strong>：
+                            <ol>
+                                <li>完成所有打包工作</li>
+                                <li>在卖家中心将订单状态更新为<strong>"待发货-等待揽收"</strong></li>
+                                <li>确保包裹已被物流商取走</li>
+                            </ol>
+                        </li>
+                    </ul>
+                    <p><strong>到点投放模式</strong>：</p>
+                    <ul>
+                        <li><strong>准备时间</strong>：下单后48小时内，在卖家中心将订单状态更新为<strong>"待发货-等待揽收"</strong></li>
+                        <li><strong>送达时间</strong>：下单后的5个自然日内将包裹运送至TikTok Shop的仓库或指定地点</li>
+                    </ul>
+                    
+                    <span class="step-title">3. 订单状态管理</span>
+                    <p><strong>待发货阶段</strong>：</p>
+                    <ul>
+                        <li><strong>揽收商家</strong>：买家付款后2个自然日内完成包裹打包和发运</li>
+                        <li><strong>自寄商家</strong>：买家付款后2个自然日内完成包裹打包和发运，并确保在买家付款后的5个自然日内送到指定仓库</li>
+                    </ul>
+                    <p><strong>已发货阶段</strong>：</p>
+                    <ul>
+                        <li>包裹在分拨仓入库后，订单自动移到"已发货"页签</li>
+                        <li>商家可在揽收完成次日凌晨看到首条件入库信息</li>
+                    </ul>
+                    
+                    <span class="step-title">4. 收货地址（自寄/自送地址）</span>
+                    <p><strong>国内分拨中心</strong>：</p>
+                    <ol>
+                        <li><strong>TT东莞自建分拨中心</strong>
+                            <ul>
+                                <li>地址：广东省东莞市洪梅镇望沙路115号易商物流园</li>
+                                <li>联系方式：18098201825</li>
+                            </ul>
+                        </li>
+                        <li><strong>万色上海分拨中心</strong>
+                            <ul>
+                                <li>地址：上海市宝山区共悦路419号</li>
+                                <li>联系方式：4008206207</li>
+                            </ul>
+                        </li>
+                        <li><strong>万色义乌分拨中心</strong>
+                            <ul>
+                                <li>地址：义乌市富通大道与祥瑞路交叉口义乌圆通妈妈商贸二号仓库二楼C单元</li>
+                                <li>联系方式：4008206207</li>
+                            </ul>
+                        </li>
+                        <li><strong>万色泉州分拨中心</strong>
+                            <ul>
+                                <li>地址：泉州市晋江市磁灶镇张林东环路999号豪川运派物流园C区</li>
+                                <li>联系方式：4008206207</li>
+                            </ul>
+                        </li>
+                        <li><strong>万色东莞分拨中心</strong>
+                            <ul>
+                                <li>地址：广东省东莞市黄江镇田星路39号巨卓产业园</li>
+                                <li>联系方式：4008206207</li>
+                            </ul>
+                        </li>
+                        <li><strong>顺丰金华(金东)分拨中心</strong>
+                            <ul>
+                                <li>地址：浙江省金华市金东区兴盛街855号（丰泰产业园-金义）B103分区</li>
+                                <li>联系方式：
+                                    <ul>
+                                        <li>08:00-13:00：15660972614</li>
+                                        <li>13:00-20:00：18034483844</li>
+                                        <li>20:00-08:00：13959528775</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ol>
+                    
+                    <span class="step-title">5. 第三方集货点</span>
+                    <p>为服务不在免费揽收范围内的商家，服务商在部分地区设立集货点：</p>
+                    <p><strong>使用条件</strong>：</p>
+                    <ol>
+                        <li>无包裹数量门槛</li>
+                        <li>自送至集货点（非快递寄运）</li>
+                    </ol>
+                    <p><strong>收货标准</strong>：</p>
+                    <ol>
+                        <li>包裹需要装大包，不能散件交接</li>
+                        <li>包裹不可使用透明外包装</li>
+                        <li>包装完好、干燥无水渍、无污渍</li>
+                    </ol>
+                    
+                    <span class="step-title">6. 包装要求</span>
+                    <ul>
+                        <li><strong>参考规范</strong>：<a href="https://bytedance.feishu.cn/docx/doxcnClnWLx98LkA28AcwRGyKoe?from=from_copylink" target="_blank">【英国/东南亚】跨境包裹包装规范</a></li>
+                        <li><strong>特别提醒</strong>：国际快递会计算包裹的体积重，建议最大限度减少包裹的包装体积</li>
+                    </ul>
+                    
+                    <span class="step-title">7. 面单打印与粘贴</span>
+                    <p><strong>面单模板</strong>：</p>
+                    <ul>
+                        <li>平台提供10×15的面单格式</li>
+                        <li>需要准备热敏打印机及热敏纸</li>
+                    </ul>
+                    <p><strong>粘贴规范</strong>：</p>
+                    <ol>
+                        <li><strong>PE袋类包裹</strong>：将面单贴在封口处</li>
+                        <li><strong>纸箱类包裹</strong>：面单张贴时覆盖两个面</li>
+                    </ol>
+                    
+                    <span class="step-title">8. 揽收服务订购流程</span>
+                    <p><strong>自动订阅</strong>：</p>
+                    <ul>
+                        <li>地址在揽收范围内会自动发起揽收服务订阅申请</li>
+                        <li>审核通过后，揽收服务立即生效</li>
+                    </ul>
+                    <p><strong>揽收商审核</strong>：</p>
+                    <ul>
+                        <li>针对在揽收覆盖范围内的商家，揽收商会在48小时内联系商家</li>
+                        <li>沟通揽收时间及细节</li>
+                    </ul>
+                    <p><strong>服务开通状态查询</strong>：</p>
+                    <ul>
+                        <li>商家可在商家后台查询揽收服务开通状态</li>
+                        <li>如果超过时间未完成审核，建议查看电话信息是否正确并主动联系服务商</li>
+                    </ul>
+                    
+                    <span class="step-title">9. 退货地址管理</span>
+                    <p>一个跨境商家需要有两个退货地址：</p>
+                    <p><strong>中国大陆地区退货地址</strong>：</p>
+                    <ul>
+                        <li><strong>使用场景</strong>：包裹送到集运仓但未入库时买家发起取消</li>
+                        <li><strong>退货方式</strong>：快递到付，商家签收时付运费</li>
+                    </ul>
+                    <p><strong>墨西哥退货地址</strong>：</p>
+                    <ul>
+                        <li><strong>使用场景</strong>：买家收到货后的售后退货</li>
+                        <li><strong>注意事项</strong>：如果商家没有维护墨西哥当地退货地址，只支持仅退款</li>
+                    </ul>
+                    
+                    <span class="step-title">10. 关税计算</span>
+                    <p><strong>墨西哥免征额</strong>：</p>
+                    <ul>
+                        <li>墨西哥T1进口没有免征额</li>
+                        <li>所有跨境电商包裹均需缴纳进口税</li>
+                    </ul>
+                    <p><strong>进口税率</strong>：</p>
+                    <ol>
+                        <li><strong>2026年8月15日前</strong>：
+                            <ul>
+                                <li>申报价格≤1000美金：19%进口税</li>
+                                <li>申报价格1000-2500美金：20%进口税</li>
+                            </ul>
+                        </li>
+                        <li><strong>2026年8月15日后</strong>：
+                            <ul>
+                                <li>申报价格≤2500美金：33.5%进口税</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <p><strong>反倾销税</strong>：</p>
+                    <ul>
+                        <li><strong>鞋子类商品</strong>：除进口税外，还需缴纳17.99%的反倾销税（2024年10月1日生效）</li>
+                        <li><strong>特殊规定</strong>：申报价格低于22.58美金含鞋子的包裹，需要额外征收22.58美金和申报价格的差价</li>
+                    </ul>
+                    <p><strong>税金计算公式</strong>：</p>
+                    <ul>
+                        <li>进口税 = 申报价格 × 进口税税率</li>
+                        <li>鞋子反倾销税（申报价格<22.58美金）：22.58 × 33.5% + (22.58 - 申报价格)</li>
+                    </ul>
+                    
+                    <span class="step-title">11. 费用结构</span>
+                    <ul>
+                        <li><strong>平台佣金</strong>：6%</li>
+                        <li><strong>SFP物流费用</strong>：标准运费为售价的6%（2026年1月15日后上调为8%）</li>
+                        <li><strong>保证金</strong>：每个店铺需要缴纳8000墨西哥比索（约3000人民币）</li>
+                        <li><strong>关税</strong>：正清关税33.5%</li>
+                    </ul>
+                    
+                    <span class="step-title">12. 物流时效指标</span>
+                    <p><strong>延迟履约率（LDR）</strong>：</p>
+                    <ul>
+                        <li><strong>上门取件</strong>：下单后48小时内，订单状态更新为"待发货-等待揽收"</li>
+                        <li><strong>到点投放</strong>：下单后的120小时内，包裹到达仓库，订单状态至"已发货"</li>
+                        <li><strong>门槛值</strong>：LDR < 8%</li>
+                    </ul>
+                    <p><strong>商家原因取消订单量（SFCR）</strong>：</p>
+                    <ul>
+                        <li><strong>上门取件</strong>：3个日历日内若未安排发货</li>
+                        <li><strong>到点投放</strong>：7个日历日内若包裹还未到达物流商仓库</li>
+                        <li><strong>门槛值</strong>：SFCR < 5%</li>
+                    </ul>
+                    
+                    <span class="step-title">13. 惩罚措施</span>
+                    <ul>
+                        <li><strong>OVL限单</strong>：如果物流时效指标不达标，平台会限制订单数量</li>
+                    </ul>
+                    
+                    <h4>三、DHL Express特快服务</h4>
+                    
+                    <span class="step-title">1. 基本信息</span>
+                    <ul>
+                        <li><strong>上线时间</strong>：2026年8月7日灰度测试，8月13日全部卖家开放</li>
+                        <li><strong>重量要求</strong>：小于30kg</li>
+                        <li><strong>尺寸要求</strong>：单边≤100厘米，三边之和≤160厘米</li>
+                        <li><strong>覆盖范围</strong>：墨西哥城、墨西哥州、瓜达拉哈拉、蒙特雷等395个城市</li>
+                        <li><strong>产品限制</strong>：1个包裹最多只能包含2个电子产品</li>
+                    </ul>
+                    
+                    <span class="step-title">2. 增值服务</span>
+                    <ul>
+                        <li><strong>自动保险</strong>：包裹价值超过3400墨西哥比索时，自动配置1%保险费</li>
+                        <li><strong>全额赔偿</strong>：可全额覆盖丢失、损坏和抢劫的赔偿</li>
+                    </ul>
+                    
+                    <span class="step-title">3. 时效要求</span>
+                    <ul>
+                        <li><strong>遵循4PL标准</strong>：3个工作日</li>
+                        <li><strong>主要线路SLA</strong>：1-2工作日</li>
+                    </ul>
+                    
+                    <span class="step-title">4. 费用结构</span>
+                    <p><strong>买方价卡（与4PL标准一致）</strong>：</p>
+                    <ul>
+                        <li>0.00-3.00千克：59墨西哥比索</li>
+                        <li>3.00-5.00千克：69墨西哥比索</li>
+                        <li>5.01-10.00千克：109墨西哥比索</li>
+                        <li>10.00-15.00千克：139墨西哥比索</li>
+                        <li>15.00-20.00千克：169墨西哥比索</li>
+                        <li>10.01-30.00千克：239墨西哥比索</li>
+                    </ul>
+                    <p><strong>卖方价卡</strong>：</p>
+                    <ul>
+                        <li>0.00-3.00千克：139墨西哥比索</li>
+                        <li>3.00-5.00千克：189墨西哥比索</li>
+                        <li>5.01-10.00千克：269墨西哥比索</li>
+                        <li>10.00-15.00千克：389墨西哥比索</li>
+                        <li>15.00-20.00千克：579墨西哥比索</li>
+                        <li>10.01-30.00千克：779墨西哥比索</li>
+                        <li><strong>保险费</strong>：销售价格超过3400墨西哥比索时，为销售价格的1%（另加16%的VAT）</li>
+                        <li><strong>燃油附加费</strong>：根据服务提供商公布的系数每月更新</li>
+                    </ul>
+                    
+                    <h4>四、关键对比总结</h4>
+                    <table class="timeline-content-table">
+                        <thead>
+                            <tr>
+                                <th>对比维度</th>
+                                <th>本土物流模式</th>
+                                <th>跨境物流模式</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>发货地点</td>
+                                <td>墨西哥本地仓</td>
+                                <td>中国发货</td>
+                            </tr>
+                            <tr>
+                                <td>物流类型</td>
+                                <td>4PL平台物流</td>
+                                <td>POP跨境直邮/小包</td>
+                            </tr>
+                            <tr>
+                                <td>时效要求</td>
+                                <td>1-11工作日送达</td>
+                                <td>2-5自然日内处理</td>
+                            </tr>
+                            <tr>
+                                <td>费用结构</td>
+                                <td>6% SFP费用</td>
+                                <td>33.5%关税+6% SFP</td>
+                            </tr>
+                            <tr>
+                                <td>退货处理</td>
+                                <td>Estafeta投递</td>
+                                <td>中墨两地退货地址</td>
+                            </tr>
+                            <tr>
+                                <td>赔付机制</td>
+                                <td>3000-15000MXN</td>
+                                <td>按责任方划分</td>
+                            </tr>
+                            <tr>
+                                <td>适用店铺</td>
+                                <td>L2L本土店</td>
+                                <td>POP跨境店</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h4>五、重要注意事项</h4>
+                    <ol>
+                        <li><strong>物流商切换</strong>：满足条件的店铺会在每月中旬和月底自动切换物流商</li>
+                        <li><strong>地址准确性</strong>：发货地址必须准确填写，避免影响揽收时效</li>
+                        <li><strong>面单打印</strong>：确保仓储系统已接入TTS API</li>
+                        <li><strong>包装优化</strong>：减少体积重，降低物流成本</li>
+                        <li><strong>时效管理</strong>：严格遵守平台时效要求，避免订单取消</li>
+                        <li><strong>关税计算</strong>：准确计算进口税和反倾销税</li>
+                        <li><strong>退货地址</strong>：维护好中墨两地的退货地址</li>
+                        <li><strong>赔付标准</strong>：了解不同物流商的赔付上限</li>
+                    </ol>
+                    <p><em>以上信息基于《TikTok Shop墨西哥站运营手册》整理，具体执行时请以平台最新政策为准。</em></p>
+                `
+            },
+            7: {
+                title: '用户评价和客服管理',
+                content: `
+                    <h4>售后评价与客服管理全流程指南</h4>
+                    <p>在掌握物流履约知识后，若您进一步关注售后评价与客服环节的运营，这份基于最新运营手册和报告梳理的指南，将为您呈现从基础操作到深度优化的全套内容。</p>
+                    
+                    <h4>一、售后评价管理与差评处理教程</h4>
+                    <p>售后评价直接影响店铺信誉和流量，且平台无法直接干预用户修改或删除评价。因此，制定积极有效的管理策略至关重要。</p>
+                    
+                    <span class="step-title">1. 差评的潜在影响与核心处理原则</span>
+                    <p><strong>严重后果</strong>：差评率过高会导致商品链接下架、店铺被限流，甚至面临封店风险。</p>
+                    <p><strong>处理核心</strong>：商家无法直接删除差评，唯一途径是向用户提供令其满意的售后解决方案，并请求用户自行删除评论。</p>
+                    
+                    <span class="step-title">2. 分步处理差评的标准化流程</span>
+                    <p>当出现差评时，建议遵循以下步骤与用户沟通解决：</p>
+                    <ol>
+                        <li><strong>初步沟通与道歉</strong>：主动联系用户，诚恳道歉并了解具体问题。可尝试发放小额优惠券作为补偿，缓和用户情绪。</li>
+                        <li><strong>提供实质性补偿</strong>：若优惠券未能解决问题，可提出在用户下次购买时，附赠相关新品或小礼物供其试用。</li>
+                        <li><strong>终极解决方案</strong>：若以上方法均无效，可作为最后一步与用户协商退款事宜。</li>
+                    </ol>
+                    
+                    <span class="step-title">3. 预防差评的长期优化措施</span>
+                    <p>从根源上减少差评，需优化内部流程：</p>
+                    <ul>
+                        <li><strong>严控产品质量与发货流程</strong>：优化产品质量，确保发货仓库严格核对发货单，避免发错货、漏发货等低级错误。</li>
+                        <li><strong>主动进行客服干预</strong>：用户收货后，客服可主动询问产品体验，提前发现潜在不满并解决。</li>
+                        <li><strong>善用好评激励</strong>：条件允许时，在包裹中附上"好评卡"，鼓励满意用户留下正面评价。</li>
+                    </ul>
+                    
+                    <h4>二、客服与售后工单系统使用教程</h4>
+                    <p>遇到需平台介入的复杂售后问题（如物流丢件、退货商品不符等）时，需通过官方客服工单系统解决。</p>
+                    
+                    <span class="step-title">1. 买家发起客服咨询的入口</span>
+                    <p><strong>C端用户（买家）</strong>：在TikTok App内，可通过 <strong>"我的" -> "右上角'...'" -> "Report a problem"</strong> 的路径进入反馈。买家发起的工单支持与客服多轮沟通。</p>
+                    
+                    <span class="step-title">2. 商家发起售后申诉与咨询的入口</span>
+                    <p><strong>商家后台</strong>：登录卖家后台，通过 <strong>"Help Center" -> "Create New Ticket"</strong> 创建工单。这是您就订单问题（如用户欺诈、物流责任判定等）向平台申诉的主要渠道。</p>
+                    
+                    <span class="step-title">3. 卖家后台售后订单管理</span>
+                    <p>在卖家后台，可集中管理所有售后申请，关键页面功能如下：</p>
+                    <table class="timeline-content-table">
+                        <thead>
+                            <tr>
+                                <th>Tab名称</th>
+                                <th>功能说明</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>All</td>
+                                <td>显示所有的售后订单，包括已完结的。</td>
+                            </tr>
+                            <tr>
+                                <td>To Proceed</td>
+                                <td>显示待您回应的买家退款/退货申请。</td>
+                            </tr>
+                            <tr>
+                                <td>In Process</td>
+                                <td>显示正在流程中的售后订单，如等待买家退货、退款处理中。</td>
+                            </tr>
+                            <tr>
+                                <td>Completed</td>
+                                <td>显示已成功退款的售后订单。</td>
+                            </tr>
+                            <tr>
+                                <td>Closed</td>
+                                <td>显示已关闭（如被拒绝）的售后订单。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>当您接受买家的退货退款申请后，订单会进入"In Process"状态，等待买家上传退货物流信息。</p>
+                    
+                    <h4>三、基于数据的深度优化建议</h4>
+                    <p>根据墨西哥市场的专项报告，售后环节存在明确的体验短板，具体优化方向如下：</p>
+                    
+                    <span class="step-title">1. 聚焦退货流程体验优化</span>
+                    <p>墨西哥市场的售后体验是当前最薄弱的环节之一，具体问题突出表现在：</p>
+                    <ul>
+                        <li><strong>退货成功率与满意度双低</strong>：墨西哥的退货退款成功率和客户满意度（CSAT）均显著低于其他参照国家。</li>
+                        <li><strong>退货流程繁琐是主因</strong>：报告明确指出"TTS退货配送流程繁琐"。数据显示，因"未在退货期内完成退货"导致的问题尤为突出。</li>
+                        <li><strong>关键瓶颈点</strong>：墨西哥的Drop-off成功寄出率极低，远低于其他国家水平。</li>
+                    </ul>
+                    
+                    <span class="step-title">2. 针对性优化行动建议</span>
+                    <ul>
+                        <li><strong>简化并明确引导退货流程</strong>：在客服话术或店铺公告中，用最清晰、简单的步骤（最好配图）指导用户完成Drop-off退货；可考虑制作西班牙语的短视频教程。</li>
+                        <li><strong>主动提供退货支持</strong>：对于高价值订单，可主动提供更详细的退货指导，甚至考虑补偿部分退货邮费，激励用户完成繁琐流程，提升售后完美解决率（PARR）。</li>
+                        <li><strong>密切监控售后指标</strong>：关注店铺的售后服务满意度（CSAT）和售后成功率等关键指标，将其作为运营健康度的核心看板。</li>
+                    </ul>
+                    
+                    <h4>四、重要资源与待办事项</h4>
+                    <ul>
+                        <li><strong>客服工单直达链接</strong>：
+                            <ul>
+                                <li>商家后台帮助中心：<a href="https://magellan-boe.bytedance.net/ticket" target="_blank">https://magellan-boe.bytedance.net/ticket</a></li>
+                            </ul>
+                        </li>
+                        <li><strong>持续学习</strong>：请定期查阅卖家大学，获取最新的平台规则和操作教程。</li>
+                    </ul>
+                    
+                    <h4>总结</h4>
+                    <p>通过系统性地管理售后评价、熟练运用客服工具，并针对墨西哥市场的本地化痛点进行优化，您将能有效提升店铺信誉，减少不必要的损失，构建更优质的购物体验。</p>
+                `
+            },
+            8: {
+                title: '大卖进阶',
+                content: `
+                    <h4>大卖进阶：从运营到系统化的7大核心模块</h4>
+                    <p>当您已掌握基础运营流程后，以下7大模块将帮助您从"会卖"到"卖得好"，构建可持续增长的运营体系。</p>
+                    
+                    <h4>一、定价与利润模型管理（非常关键）</h4>
+                    <p>很多 TTS 卖家死在这里，但不自知。</p>
+                    <p><strong>需要长期盯的核心点</strong>：</p>
+                    <ul>
+                        <li><strong>毛利结构</strong>：到岸成本 / 平台佣金 / 运费 / 退货率</li>
+                        <li><strong>达人佣金 + 广告叠加后的真实利润</strong></li>
+                        <li><strong>价格梯度设计</strong>：首单价 / 日常价 / 促销价</li>
+                        <li><strong>是否适合「达人卖」还是「广告卖」</strong></li>
+                    </ul>
+                    <p>📌 <strong>TTS 不是拼 GMV，是拼「单位内容 ROI」。</strong></p>
+                    
+                    <h4>二、内容模型与爆款复盘机制</h4>
+                    <p>不是"拍视频"，而是系统化生产内容：</p>
+                    <ul>
+                        <li><strong>爆款视频结构拆解</strong>
+                            <ul>
+                                <li>前 3 秒钩子</li>
+                                <li>场景 / 痛点 / 证明</li>
+                            </ul>
+                        </li>
+                        <li><strong>可复制的内容模板</strong></li>
+                        <li><strong>失败内容的快速淘汰机制</strong></li>
+                    </ul>
+                    <p>📌 <strong>内容不是创作，是工程化生产。</strong></p>
+                    
+                    <h4>三、达人分层与合作机制设计</h4>
+                    <p>不是"找达人"，而是把达人当成长期资产：</p>
+                    <ul>
+                        <li><strong>达人分层</strong>：头部 / 腰部 / 长尾</li>
+                        <li><strong>不同层级的不同合作策略</strong></li>
+                        <li><strong>私域绑定 vs 放量测试</strong></li>
+                        <li><strong>达人二次激活机制</strong></li>
+                    </ul>
+                    <p>📌 <strong>真正跑起来的 TTS，达人是资产，不是一次性流量。</strong></p>
+                    
+                    <h4>四、数据监控与决策指标体系</h4>
+                    <p>建议单独作为一个核心板块长期维护。</p>
+                    <p><strong>重点看 4 组数据</strong>：</p>
+                    <ul>
+                        <li><strong>内容端</strong>：播放 → 点击 → 转化</li>
+                        <li><strong>达人端</strong>：单达人 GMV / ROI</li>
+                        <li><strong>商品端</strong>：退款率 / 差评率</li>
+                        <li><strong>广告端</strong>：放量阈值 & 止损线</li>
+                    </ul>
+                    <p>📌 <strong>不看数据 = 靠感觉烧钱。</strong></p>
+                    
+                    <h4>五、供应链稳定性与扩展性（中长期关键）</h4>
+                    <p>你做的是跨境墨西哥 B2C，这块尤为重要：</p>
+                    <ul>
+                        <li><strong>是否支持爆单扩容</strong></li>
+                        <li><strong>是否有备用供应</strong></li>
+                        <li><strong>包装 / 合规 / 标签是否标准化</strong></li>
+                    </ul>
+                    <p>📌 <strong>一次断货，可能直接把算法权重打没。</strong></p>
+                    
+                    <h4>六、平台政策 / 合规 / 风控</h4>
+                    <p>很多卖家"死得很突然"，往往不是因为不会卖，而是踩线：</p>
+                    <ul>
+                        <li><strong>类目红线</strong></li>
+                        <li><strong>广告合规</strong></li>
+                        <li><strong>内容禁词</strong></li>
+                        <li><strong>达人违规连坐</strong></li>
+                    </ul>
+                    <p>📌 <strong>TTS 更偏内容平台，不是传统电商。</strong></p>
+                    
+                    <h4>七、品牌心智与账号资产沉淀</h4>
+                    <p>当你开始有稳定 GMV 后，这一块决定上限：</p>
+                    <ul>
+                        <li><strong>是否有清晰的品牌叙事</strong></li>
+                        <li><strong>账号是否具备信任感</strong></li>
+                        <li><strong>是否可以做矩阵号 / 子品牌</strong></li>
+                    </ul>
+                    <p>📌 <strong>后期最值钱的不是爆款，是账号资产。</strong></p>
+                `
+            }
+        };
+
+        // 打开时间轴模态框
+        function openTimelineModal(step) {
+            const data = timelineContentData[step];
+            if (!data) return;
+            
+            const modal = document.getElementById('timelineModal');
+            const titleEl = document.getElementById('timelineModalTitle');
+            const bodyEl = document.getElementById('timelineModalBody');
+            
+            // 获取当前语言的标题
+            const t = translations[currentLang] || translations['zh'];
+            const titleKey = step === 1 ? 'timeline-shop-entry' :
+                           step === 2 ? 'timeline-product-selection' :
+                           step === 3 ? 'timeline-content-marketing' :
+                           step === 4 ? 'timeline-creator-cooperation' :
+                           step === 5 ? 'timeline-advertising' :
+                           step === 6 ? 'timeline-fulfillment' :
+                           step === 7 ? 'timeline-service-management' :
+                           step === 8 ? 'timeline-advanced-selling' :
+                           'timeline-service-management';
+            
+            titleEl.textContent = t[titleKey] || data.title;
+            bodyEl.innerHTML = data.content;
+            
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // 关闭时间轴模态框
+        function closeTimelineModal() {
+            document.getElementById('timelineModal').classList.remove('show');
+            document.body.style.overflow = '';
+        }
+
+        // 点击背景关闭时间轴模态框
+        function closeTimelineModalOnBackdrop(event) {
+            if (event.target.id === 'timelineModal') {
+                closeTimelineModal();
+            }
+        }
+
+        // 事件轴交互（已废弃，保留以防需要）
+        function initTimeline() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            let activeIndex = -1; // 记录当前激活的项索引
+            
+            timelineItems.forEach((item, index) => {
+                // 鼠标移入标题区域时展开
+                const header = item.querySelector('.timeline-header');
+                if (header) {
+                    header.addEventListener('mouseenter', function() {
+                        // 如果有之前激活的项，需要收起并保持页面位置
+                        if (activeIndex !== -1 && activeIndex !== index) {
+                            const previousItem = timelineItems[activeIndex];
+                            const previousContent = previousItem.querySelector('.timeline-content');
+                            
+                            if (previousContent) {
+                                // 记录收起前的内容实际高度和滚动位置
+                                const contentHeight = previousContent.offsetHeight;
+                                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                                
+                                // 判断方向：如果新项在下（index > activeIndex），则上一项向下收起
+                                const isMovingDown = index > activeIndex;
+                                
+                                // 移除active类，触发收起动画
+                                previousItem.classList.remove('active');
+                                
+                                // 如果向下移动，需要补偿高度变化以保持页面位置
+                                if (isMovingDown && contentHeight > 0) {
+                                    // 使用 requestAnimationFrame 在动画过程中持续调整
+                                    let animationFrameId;
+                                    let startTime = null;
+                                    const duration = 600; // 动画时长
+                                    
+                                    const adjustScroll = (timestamp) => {
+                                        if (!startTime) startTime = timestamp;
+                                        const elapsed = timestamp - startTime;
+                                        
+                                        if (elapsed < duration) {
+                                            // 使用缓动函数计算进度（与CSS transition一致）
+                                            const progress = elapsed / duration;
+                                            const easedProgress = progress < 0.5 
+                                                ? 2 * progress * progress 
+                                                : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+                                            
+                                            // 计算当前应该补偿的高度
+                                            const currentHeight = contentHeight * (1 - easedProgress);
+                                            const heightDiff = contentHeight - currentHeight;
+                                            
+                                            // 调整滚动位置，补偿高度变化
+                                            window.scrollTo(0, scrollTop + heightDiff);
+                                            
+                                            animationFrameId = requestAnimationFrame(adjustScroll);
+                                        } else {
+                                            // 动画结束，确保最终位置正确
+                                            window.scrollTo(0, scrollTop + contentHeight);
+                                        }
+                                    };
+                                    
+                                    requestAnimationFrame(adjustScroll);
+                                }
+                            } else {
+                                previousItem.classList.remove('active');
+                            }
+                        }
+                        
+                        // 移除其他项的active类
+                        timelineItems.forEach(otherItem => {
+                            if (otherItem !== item && otherItem !== timelineItems[activeIndex]) {
+                                otherItem.classList.remove('active');
+                            }
+                        });
+                        
+                        // 添加当前项的active类（自动展开）
+                        item.classList.add('active');
+                        activeIndex = index;
+                    });
+                }
+                
+                // 鼠标移出整个项时收起
+                item.addEventListener('mouseleave', function() {
+                    if (activeIndex === index) {
+                        const content = item.querySelector('.timeline-content');
+                        if (content) {
+                            const contentHeight = content.offsetHeight;
+                            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                            
+                            item.classList.remove('active');
+                            
+                            // 补偿高度变化
+                            if (contentHeight > 0) {
+                                let animationFrameId;
+                                let startTime = null;
+                                const duration = 600;
+                                
+                                const adjustScroll = (timestamp) => {
+                                    if (!startTime) startTime = timestamp;
+                                    const elapsed = timestamp - startTime;
+                                    
+                                    if (elapsed < duration) {
+                                        const progress = elapsed / duration;
+                                        const easedProgress = progress < 0.5 
+                                            ? 2 * progress * progress 
+                                            : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+                                        
+                                        const currentHeight = contentHeight * (1 - easedProgress);
+                                        const heightDiff = contentHeight - currentHeight;
+                                        window.scrollTo(0, scrollTop + heightDiff);
+                                        
+                                        animationFrameId = requestAnimationFrame(adjustScroll);
+                                    } else {
+                                        window.scrollTo(0, scrollTop + contentHeight);
+                                    }
+                                };
+                                
+                                requestAnimationFrame(adjustScroll);
+                            }
+                        } else {
+                            item.classList.remove('active');
+                        }
+                        activeIndex = -1;
+                    }
+                });
+            });
+        }
+
         // 渲染官方指南链接
         function renderOfficialLinks() {
             const container = document.getElementById('official-links');
@@ -1186,6 +2983,7 @@
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeContactModal();
+                closeTimelineModal();
             }
         });
 
@@ -1203,9 +3001,27 @@
                 'bio': '专注于TikTok Shop墨西哥市场耐消品行业的招商运营工作，致力于帮助优质品牌和商家拓展拉美市场。拥有丰富的跨境电商运营经验和深厚的行业洞察，擅长品牌孵化、市场策略制定和运营优化。致力于构建高效、可持续的电商生态，为商家创造更大价值。',
                 'help-button': '💡 如何解决问题？',
                 'help-label': '点击查看解决问题常规流程👆',
+                'qa-quick-guide': '❓ Q&A快速指引',
+                'qa-quick-guide-label': '点击查看常见问题解答👆',
                 'shop-action-direct': '开店行动直达！',
                 'quick-entry-note': '👆在开店申请中填写所有字段后，本土店处理时效2-3工作日、跨境店3-7工作日，通过邮件发送正式注册链接，注意查收。',
                 'quick-entry': '快速入口',
+                'timeline-section-title': '卖家起量关键动线',
+                'timeline-shop-entry': '开店入驻',
+                'timeline-product-selection': '选品上品',
+                'timeline-product-selection-desc': '选择合适的商品，优化商品详情页，设置价格和库存，发布到店铺。',
+                'timeline-content-marketing': '内容带货',
+                'timeline-content-marketing-desc': '制作优质短视频内容，展示商品特色，通过内容吸引用户关注和购买。',
+                'timeline-creator-cooperation': '达人合作',
+                'timeline-creator-cooperation-desc': '与TikTok达人建立合作关系，通过达人推广扩大商品曝光和销售。',
+                'timeline-advertising': '广告投放',
+                'timeline-advertising-desc': '利用TikTok广告平台精准投放广告，提升商品曝光度和转化率。',
+                'timeline-fulfillment': '发货履约',
+                'timeline-fulfillment-desc': '及时处理订单，安排发货，确保商品按时送达，提供良好的物流体验。',
+                'timeline-service-management': '用户评价和客服管理',
+                'timeline-service-management-desc': '管理客户评价，提供优质客服服务，处理售后问题，维护店铺声誉。',
+                'timeline-advanced-selling': '大卖进阶',
+                'timeline-advanced-selling-desc': '从运营到系统化的7大核心模块，构建可持续增长的运营体系。',
                 'shop-direct': '开店直达',
                 'official-guide': '官方指南',
                 'policy-overview': '入驻政策速览',
@@ -1214,7 +3030,7 @@
                 'local-shop-desc': '申请本本店需要完整填写所有字段，处理时间2-3工作日',
                 'cross-border': '申请跨境店铺',
                 'cross-border-desc': '跨境店铺处理时效约7个工作日，会通过邮件通知您正式注册链接',
-                'operation-manual': '官方运营手册',
+                'operation-manual': '官方一站式运营手册',
                 'operation-desc': '查看完整的运营指南和操作手册。进入手册后Ctrl/Command+F 搜索关键词即可直达词条',
                 'info-group': '官方信息发布群',
                 'info-group-desc': '扫描二维码加入官方信息发布群',
@@ -1243,9 +3059,27 @@
                 'bio': 'Focusing on recruitment and operations for TikTok Shop Mexico market durable goods industry, committed to helping quality brands and merchants expand into the Latin American market. With rich cross-border e-commerce operations experience and deep industry insights, specializing in brand incubation, market strategy development, and operations optimization. Committed to building an efficient and sustainable e-commerce ecosystem to create greater value for merchants.',
                 'help-button': '💡 How to Solve Problems?',
                 'help-label': 'Click to view problem-solving process👆',
+                'qa-quick-guide': '❓ Q&A Quick Guide',
+                'qa-quick-guide-label': 'Click to view FAQ👆',
                 'shop-action-direct': 'Shop Action Direct!',
                 'quick-entry-note': '👆 After filling all fields in the shop application, local shop processing time is 2-3 business days, cross-border shop is 3-7 business days, official registration link will be sent via email, please check.',
                 'quick-entry': 'Quick Entry',
+                'timeline-shop-entry': 'Shop Entry',
+                'timeline-shop-entry-desc': 'Complete shop registration, qualification certification, account setup and other basic configurations to establish your TikTok Shop store.',
+                'timeline-product-selection': 'Product Selection & Listing',
+                'timeline-product-selection-desc': 'Select suitable products, optimize product detail pages, set prices and inventory, and publish to the store.',
+                'timeline-content-marketing': 'Content Marketing',
+                'timeline-content-marketing-desc': 'Create high-quality short video content to showcase product features and attract user attention and purchases through content.',
+                'timeline-creator-cooperation': 'Creator Cooperation',
+                'timeline-creator-cooperation-desc': 'Establish partnerships with TikTok creators to expand product exposure and sales through creator promotion.',
+                'timeline-advertising': 'Advertising',
+                'timeline-advertising-desc': 'Use TikTok advertising platform for targeted ad campaigns to increase product exposure and conversion rates.',
+                'timeline-fulfillment': 'Fulfillment & Shipping',
+                'timeline-fulfillment-desc': 'Process orders in a timely manner, arrange shipping, ensure on-time delivery, and provide good logistics experience.',
+                'timeline-service-management': 'Review & Customer Service',
+                'timeline-service-management-desc': 'Manage customer reviews, provide quality customer service, handle after-sales issues, and maintain store reputation.',
+                'timeline-advanced-selling': 'Advanced Selling',
+                'timeline-advanced-selling-desc': '7 core modules from operations to systematization, building a sustainable growth system.',
                 'shop-direct': 'Shop Direct',
                 'official-guide': 'Official Guide',
                 'policy-overview': 'Policy Overview',
@@ -1283,9 +3117,27 @@
                 'bio': 'Enfocado en el reclutamiento y operaciones de la industria de bienes duraderos del mercado mexicano de TikTok Shop, comprometido a ayudar a marcas y comerciantes de calidad a expandirse en el mercado latinoamericano. Con rica experiencia en operaciones de comercio electrónico transfronterizo y profundos conocimientos de la industria, especializado en incubación de marcas, desarrollo de estrategias de mercado y optimización de operaciones. Comprometido a construir un ecosistema de comercio electrónico eficiente y sostenible para crear mayor valor para los comerciantes.',
                 'help-button': '💡 ¿Cómo Resolver Problemas?',
                 'help-label': 'Haz clic para ver el proceso de resolución de problemas👆',
+                'qa-quick-guide': '❓ Guía Rápida Q&A',
+                'qa-quick-guide-label': 'Haz clic para ver preguntas frecuentes👆',
                 'shop-action-direct': '¡Acción Directa de Tienda!',
                 'quick-entry-note': '👆 Después de completar todos los campos en la solicitud de tienda, el tiempo de procesamiento de la tienda local es de 2-3 días hábiles, la tienda transfronteriza es de 3-7 días hábiles, el enlace de registro oficial se enviará por correo electrónico, por favor revise.',
                 'quick-entry': 'Entrada Rápida',
+                'timeline-shop-entry': 'Entrada a la Tienda',
+                'timeline-shop-entry-desc': 'Complete el registro de la tienda, certificación de calificaciones, configuración de cuenta y otras configuraciones básicas para establecer su tienda TikTok Shop.',
+                'timeline-product-selection': 'Selección y Listado de Productos',
+                'timeline-product-selection-desc': 'Seleccione productos adecuados, optimice las páginas de detalles del producto, establezca precios e inventario, y publique en la tienda.',
+                'timeline-content-marketing': 'Marketing de Contenido',
+                'timeline-content-marketing-desc': 'Cree contenido de video corto de alta calidad para mostrar las características del producto y atraer la atención y compras de los usuarios a través del contenido.',
+                'timeline-creator-cooperation': 'Cooperación con Creadores',
+                'timeline-creator-cooperation-desc': 'Establezca asociaciones con creadores de TikTok para expandir la exposición y ventas de productos a través de la promoción de creadores.',
+                'timeline-advertising': 'Publicidad',
+                'timeline-advertising-desc': 'Utilice la plataforma publicitaria de TikTok para campañas publicitarias dirigidas para aumentar la exposición y las tasas de conversión de productos.',
+                'timeline-fulfillment': 'Cumplimiento y Envío',
+                'timeline-fulfillment-desc': 'Procese pedidos de manera oportuna, organice el envío, garantice la entrega a tiempo y proporcione una buena experiencia logística.',
+                'timeline-service-management': 'Gestión de Reseñas y Servicio al Cliente',
+                'timeline-service-management-desc': 'Administre las reseñas de clientes, proporcione un servicio al cliente de calidad, maneje problemas postventa y mantenga la reputación de la tienda.',
+                'timeline-advanced-selling': 'Venta Avanzada',
+                'timeline-advanced-selling-desc': '7 módulos principales desde operaciones hasta sistematización, construyendo un sistema de crecimiento sostenible.',
                 'shop-direct': 'Tienda Directa',
                 'official-guide': 'Guía Oficial',
                 'policy-overview': 'Resumen de Políticas',
@@ -1362,11 +3214,21 @@
             if (bioEl) bioEl.textContent = t.bio || tZh.bio || '';
             
             // 更新帮助按钮
-            const helpBtn = document.querySelector('.help-button');
-            if (helpBtn) helpBtn.textContent = t['help-button'] || tZh['help-button'] || '';
+            const helpButtons = document.querySelectorAll('.help-button');
+            if (helpButtons.length > 0) {
+                helpButtons[0].textContent = t['help-button'] || tZh['help-button'] || '';
+                if (helpButtons.length > 1) {
+                    helpButtons[1].textContent = t['qa-quick-guide'] || tZh['qa-quick-guide'] || '';
+                }
+            }
             
-            const helpLabel = document.querySelector('.help-label');
-            if (helpLabel) helpLabel.textContent = t['help-label'] || tZh['help-label'] || '';
+            const helpLabels = document.querySelectorAll('.help-label');
+            if (helpLabels.length > 0) {
+                helpLabels[0].textContent = t['help-label'] || tZh['help-label'] || '';
+                if (helpLabels.length > 1) {
+                    helpLabels[1].textContent = t['qa-quick-guide-label'] || tZh['qa-quick-guide-label'] || '';
+                }
+            }
             
             const quickEntryNote = document.querySelector('.quick-entry-note');
             if (quickEntryNote) quickEntryNote.textContent = t['quick-entry-note'] || tZh['quick-entry-note'] || '';
